@@ -12,10 +12,8 @@
   $c-color-green:  #27ae60; // .. nephritis
   $c-color-blue:   #2980b9; // .. belize hole
   $c-color-violet: #9b59b6; // .. amethyst
-  $c-color-gray:   #95a5a6; // .. concrete
+  $c-color-light:  #95a5a6; // .. concrete
   $c-color-dark:   #2c3e50; // .. midnight blue
-  $c-color-white:  #fff;    // .. white
-  $c-color-black:  #000;    // .. black
 
 
   
@@ -69,10 +67,8 @@
     &.__green  {background-color: lighten($c-color-green,  25%);}
     &.__blue   {background-color: lighten($c-color-blue,   25%);}
     &.__violet {background-color: lighten($c-color-violet, 25%);}
-    &.__gray   {background-color: lighten($c-color-gray,   25%);}
+    &.__light  {background-color: lighten($c-color-light,   25%);}
     &.__dark   {background-color: lighten($c-color-dark,   25%);}
-    &.__white  {background-color: $c-color-white;}
-    &.__black  {background-color: $c-color-black;}
   }
 
 
@@ -97,7 +93,7 @@
     &.__green  {background: $c-color-green;}
     &.__blue   {background: $c-color-blue;}
     &.__violet {background: $c-color-violet;}
-    &.__gray   {background: $c-color-gray;}
+    &.__light  {background: $c-color-light;}
     &.__dark   {background: $c-color-dark;}
   }
 
@@ -105,7 +101,7 @@
 
   //****************************************************************************************************
   //
-  // .. BREADCRUMBS
+  // .. BORDERS
   //
   //****************************************************************************************************
   .c-border {
@@ -117,7 +113,7 @@
     &.__green  {border-color: lighten($c-color-green,  20%);}
     &.__blue   {border-color: lighten($c-color-blue,   20%);}
     &.__violet {border-color: lighten($c-color-violet, 20%);}
-    &.__gray   {border-color: lighten($c-color-gray,   20%);}
+    &.__light  {border-color: lighten($c-color-light,   20%);}
     &.__dark   {border-color: lighten($c-color-dark,   20%);}
   }
 
@@ -219,8 +215,8 @@
       @include linear-gradient(vertical, #af7ac4, #9b59b6);
       &:not([disabled]):active {@include linear-gradient(vertical, #9b59b6, #af7ac4);}
     }
-    &.__gray {
-      border-color: $c-color-gray;
+    &.__light {
+      border-color: $c-color-light;
       @include linear-gradient(vertical, #aab7b7, #95a5a6);
       &:not([disabled]):active {@include linear-gradient(vertical, #95a5a6, #aab7b7);}
     }
@@ -246,17 +242,15 @@
     &.__green  {color: $c-color-green;}
     &.__blue   {color: $c-color-blue;}
     &.__violet {color: $c-color-violet;}
-    &.__gray   {color: $c-color-gray;}
+    &.__light  {color: $c-color-light;}
     &.__dark   {color: $c-color-dark;}
-    &.__white  {color: $c-color-white;}
-    &.__black  {color: $c-color-black;}
   }
 
 
 
   //****************************************************************************************************
   //
-  // .. PAGINATION
+  // .. NAVIGATION
   //
   //****************************************************************************************************
   .c-navigation {
