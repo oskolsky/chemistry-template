@@ -1,10 +1,12 @@
 # Chemistry Template
+Version: 1.0 beta, 28.03.2014
 
-Version: 1.0 beta
+## Introduction
+Chemistry Template is not a framework. It's a development kit that provides the most basic frontend functionality as a foundation, but is ready to adopt almost all your needs.
 
-Updated: 20/03/2014
+## Howto
+[Documentation](docs)
 
 ## Credits
-
 * @brainsapiens — Senior Frontend Developer
 * @oskolsky — Senior Frontend Developer
