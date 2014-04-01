@@ -159,25 +159,29 @@ h1, h2, h3, h4, h5, h6, .alpha, .beta, .gamma, .delta, .epsilon, .zeta {
     &.__#{$i} {font-weight: $i;}
   }
 
-  &.__i   {font-style: italic;}
+  &.__i {font-style: italic;}
 
   &.__xxs {
     font-size: $tx-xxs-font-size;
     line-height: $tx-xxs-line-height;
   }
-  &.__xs  {
+  &.__xs {
     font-size: $tx-xs-font-size;
     line-height: $tx-xs-line-height;
   }
-  &.__s   {
+  &.__s {
     font-size: $tx-s-font-size;
     line-height: $tx-s-line-height;
   }
-  &.__l   {
+  &.__m {
+    font-size: $tx-m-font-size;
+    line-height: $tx-m-line-height;
+  }
+  &.__l {
     font-size: $tx-l-font-size;
     line-height: $tx-l-line-height;
   }
-  &.__xl  {
+  &.__xl {
     font-size: $tx-xl-font-size;
     line-height: $tx-xl-line-height;
   }
