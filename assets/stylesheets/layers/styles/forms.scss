@@ -99,7 +99,7 @@ input {
     cursor: pointer;
     @include prefixes(transition, none);
     @include linear-gradient(vertical, #eee, #ddd);
-    &:not([disabled]):hover {box-shadow: inset 0 0 .3em rgba(0, 0, 0, .1);}
+    &:not([disabled]):hover {box-shadow: inset 0 0 .3em rgba(0,0,0,.1);}
     &:not([disabled]):active {@include linear-gradient(vertical, #ddd, #eee);}
   }
 
