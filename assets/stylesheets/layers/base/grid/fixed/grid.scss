@@ -46,6 +46,6 @@
     &.__no-gutter {
       @include grid-fixed("> .grid-i.__suffix", "margin-right", 0, 0);
     }
-    @include grid-fixed(".grid-i.__suffix", "margin-right", $grid-fixed-col-gutter, $grid-fixed-col-gutter);
+    @include grid-fixed(".grid-i.__suffix", "margin-right", 0, $grid-fixed-col-gutter);
   }
 }
