@@ -17,10 +17,11 @@
 // .. VENDOR
 //
 //****************************************************************************************************
-@import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css";
 @import "vendor/jquery.arcticmodal-0.3.css";
-@import "vendor/owl/owl.carousel.css";
-@import "vendor/owl/owl.transitions.css";
+@import "vendor/selectordie.css";
+@import "vendor/owl.carousel.css";
+@import "vendor/animate.css";
 
 
 
@@ -55,15 +56,6 @@
 @import "layers/styles/alerts";
 @import "layers/styles/dialogs";
 @import "layers/styles/popups";
-
-
-
-//****************************************************************************************************
-//
-// .. COMPONENTS
-//
-//****************************************************************************************************
-@import "components";
 
 
 

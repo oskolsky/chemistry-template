@@ -31,23 +31,22 @@ var paths = {
   javascripts: {
     src: [
       './assets/javascripts/vendor/modernizr-latest.js',
-      './assets/javascripts/vendor/yepnope.js',
-      './assets/javascripts/vendor/jquery-2.1.0.js',
-      './assets/javascripts/vendor/jquery-ui-1.10.4.js',
+      // './assets/javascripts/vendor/require.js',
+      './assets/javascripts/vendor/jquery-2.1.1.js',
+      './assets/javascripts/vendor/jquery-ui.js',
       './assets/javascripts/vendor/underscore.js',
       './assets/javascripts/vendor/backbone.js',
-      './assets/javascripts/vendor/smartresize.js',
-      './assets/javascripts/vendor/doublehover.js',
       './assets/javascripts/vendor/owl.carousel.js',
       './assets/javascripts/vendor/jquery.arcticmodal.js',
+      './assets/javascripts/vendor/selectordie.js',
       './assets/javascripts/vendor/imagesloaded.pkgd.js',
       './assets/javascripts/vendor/masonry.pkgd.js',
       './assets/javascripts/vendor/accounting.js',
-      './assets/javascripts/polyfill/polyfill.js',
+      './assets/javascripts/polyfills/polyfills.js',
       './assets/javascripts/config.js',
       './assets/javascripts/jquery.extensions.js',
+      './assets/javascripts/utilities.js',
       './assets/javascripts/forms.js',
-      './assets/javascripts/components.js',
       './assets/javascripts/application.js',
       './assets/javascripts/project.js'
     ],
@@ -118,7 +117,7 @@ gulp.task('stylesheets:production', ['stylesheets:staging'], function() {
 // .. Javascripts
 //
 gulp.task('javascripts:staging', function() {
-  return gulp.src(['./assets/javascripts/*.js', './assets/javascripts/polyfill/*.js'])
+  return gulp.src(['./assets/javascripts/*.js', './assets/javascripts/polyfills/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter());
 });
@@ -152,9 +151,9 @@ gulp.task('copy:javascripts', function() {
     .pipe(gulp.dest('./build/assets/javascripts'));
 });
 
-gulp.task('copy:javascripts:polyfill', function() {
-  gulp.src('./assets/javascripts/polyfill/vendor/**/*.js')
-    .pipe(gulp.dest('./build/assets/javascripts/polyfill/vendor'));
+gulp.task('copy:javascripts:polyfills', function() {
+  gulp.src('./assets/javascripts/polyfills/vendor/**/*.js')
+    .pipe(gulp.dest('./build/assets/javascripts/polyfills/vendor'));
 });
 
 gulp.task('copy:images', function() {
@@ -241,7 +240,7 @@ gulp.task('production', ['clean'], function() {
     'javascripts:production',
     'images',
     'copy:stylesheets:vendor',
-    'copy:javascripts:polyfill',
+    'copy:javascripts:polyfills',
     'copy:fonts',
     'copy:files'
   );

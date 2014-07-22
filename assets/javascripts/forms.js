@@ -18,6 +18,8 @@
       });
     };
 
+
+
   //****************************************************************************************************
   //
   // .. ELEMENTS
@@ -65,7 +67,7 @@
       }
 
       if (name) {
-        toRefresh = $(parent).find('[name=' + name + ']:radio');
+        toRefresh = $(parent).find('[name=' + name.replace(/(:|\.|\[|\])/g,'\\$1') + ']:radio');
       } else {
         toRefresh = $(parent).find(':radio');
       }
@@ -124,6 +126,7 @@
           locked = false;
         }
       });
+
       this.$el.change(this.refresh.bind(this));
       listenFocus(this.$fake, this.$el);
     };
@@ -139,6 +142,7 @@
       this.$label.text(filename);
       updateValidDisabled(this.$fake, this.$el);
     };
+
 
 
   //****************************************************************************************************

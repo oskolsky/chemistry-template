@@ -50,7 +50,7 @@ accounting.settings = {
 function formatNumber() {
   $('.format-number').each(function() {
     var
-      number = parseInt($(this).text()),
+      number = parseInt($(this).text().replace(' ', '')),
       formatNumber = accounting.formatNumber(number);
 
     $(this).text(formatNumber);
@@ -72,7 +72,7 @@ function formatMoney() {
     }
 
     var
-      money = parseFloat($(this).text()),
+      money = parseFloat($(this).text().replace(' ', '')),
       formatMoney = accounting.formatMoney(money);
     
     if ($(this).hasClass('__rub')) {
@@ -147,7 +147,7 @@ $(function() {
   // .. $('#checkbox').customForm() to init single element; $('body').customForm() to init all elements
   //
   //****************************************************************************************************
-  $('.form').customForm();
+  $('.js-form').customForm();
 
 
 
