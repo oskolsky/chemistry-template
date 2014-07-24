@@ -76,7 +76,7 @@ function formatMoney() {
       formatMoney = accounting.formatMoney(money);
     
     if ($(this).hasClass('__rub')) {
-      $(this).text(formatMoney).append('&nbsp;<i class="fa fa-ruble"></i>');
+      $(this).text(formatMoney).append('&nbsp;<span class="rub">Р</span>');
     } else {
       $(this).text(formatMoney);
     }

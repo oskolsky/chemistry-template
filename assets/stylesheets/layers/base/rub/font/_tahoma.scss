@@ -1,0 +1,37 @@
+@if $rub == "all" or $rub == "tahoma" {
+  @font-face {
+    font-family: "ALSRubl-Tahoma";
+    src: url("/assets/fonts/rub/tahoma/alsrubl-tahoma-regular.eot");
+    src: url("/assets/fonts/rub/tahoma/alsrubl-tahoma-regular.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/rub/tahoma/alsrubl-tahoma-regular.woff") format("woff"),
+         url("/assets/fonts/rub/tahoma/alsrubl-tahoma-regular.ttf") format("truetype"),
+         url("/assets/fonts/rub/tahoma/alsrubl-tahoma-regular.svg#ALSRublTahomaItalic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "ALSRubl-Tahoma";
+    src: url("/assets/fonts/rub/tahoma/alsrubl-tahoma-bold.eot");
+    src: url("/assets/fonts/rub/tahoma/alsrubl-tahoma-bold.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/rub/tahoma/alsrubl-tahoma-bold.woff") format("woff"),
+         url("/assets/fonts/rub/tahoma/alsrubl-tahoma-bold.ttf") format("truetype"),
+         url("/assets/fonts/rub/tahoma/alsrubl-tahoma-bold.svg#ALSRublTahomaItalic") format("svg");
+    font-weight: bold;
+    font-style: normal;
+  }
+}
+
+
+
+//****************************************************************************************************
+//
+// .. STYLES
+//
+//****************************************************************************************************
+@if $rub == "tahoma" {
+  @include class(rub) {
+    font-family: "ALSRubl-Tahoma", Tahoma, sans-serif;
+    line-height: normal;
+  }
+}

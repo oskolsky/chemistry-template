@@ -1,0 +1,43 @@
+@import "font/_arial";
+@import "font/_georgia";
+@import "font/_tahoma";
+@import "font/_times";
+@import "font/_verdana";
+
+
+
+//****************************************************************************************************
+//
+// .. STYLES
+//
+//****************************************************************************************************
+@if $rub == "all" {
+  @include class(rub-arial) {
+    font-family: "ALSRubl-Arial", Arial, sans-serif;
+    line-height: normal;
+  }
+  @include class(rub-georgia) {
+    font-family: "ALSRubl-Georgia", Georgia, serif;
+    line-height: normal; 
+  }
+  @include class(rub-tahoma) {
+    font-family: "ALSRubl-Tahoma", Tahoma, sans-serif;
+    line-height: normal; 
+  }
+  @include class(rub-times) {
+    font-family: "ALSRubl-Times", "Times New Roman", Times, serif;
+    line-height: normal; 
+  }
+  @include class(rub-verdana) {
+    font-family: "ALSRubl-Verdana", Verdana, sans-serif;
+    line-height: normal; 
+  }
+
+  .format-money.__rub {
+    &.__arial > .rub {@extend %rub-arial;}
+    &.__georgia > .rub {@extend %rub-georgia;}
+    &.__tahoma > .rub {@extend %rub-tahoma;}
+    &.__times > .rub {@extend %rub-times;}
+    &.__verdana > .rub {@extend %rub-verdana;}
+  }
+}

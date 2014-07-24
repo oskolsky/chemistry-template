@@ -3,7 +3,7 @@
 // .. GRID
 //
 //****************************************************************************************************
-$grid-fixed-ctn-width:  ($grid-fixed-col-width + $grid-fixed-col-gutter) * $grid-fixed-col-qty - $grid-fixed-col-gutter;
+$grid-fixed-ctn-width: ($grid-fixed-col-width + $grid-fixed-col-gutter) * $grid-fixed-col-qty - $grid-fixed-col-gutter;
 
 
 
@@ -31,6 +31,11 @@ $grid-fixed-ctn-width:  ($grid-fixed-col-width + $grid-fixed-col-gutter) * $grid
       -ms-#{$property}: $value;
        -o-#{$property}: $value;
           #{$property}: $value;
+}
+
+@mixin class($name) {
+  %#{$name},
+  .#{$name} {@content;}
 }
 
 @mixin linear-gradient($direction, $start, $end) {
