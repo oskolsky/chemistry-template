@@ -5,8 +5,8 @@
 //****************************************************************************************************
 var
   gulp = require('gulp'),
-  clean = require('gulp-clean'),
   ignore = require('gulp-ignore'),
+  clean = require('gulp-clean'),
   haml = require('gulp-ruby-haml'),
   htmlreplace = require('gulp-html-replace'),
   sass = require('gulp-ruby-sass'),
@@ -45,7 +45,7 @@ var paths = {
       './assets/javascripts/polyfills/polyfills.js',
       './assets/javascripts/config.js',
       './assets/javascripts/jquery.extensions.js',
-      './assets/javascripts/utilities.js',
+      './assets/javascripts/helpers.js',
       './assets/javascripts/forms.js',
       './assets/javascripts/application.js',
       './assets/javascripts/project.js'
@@ -88,7 +88,7 @@ gulp.task('layouts:development/staging', function() {
 
 gulp.task('layouts:production', ['layouts:development/staging'], function() {
   return gulp.src('./build/**/*.html')
-    .pipe(htmlreplace('javascripts', '/assets/javascripts/application.js', '<script src="%s"></script>'))
+    .pipe(htmlreplace({javascripts: {src: '/assets/javascripts/application.js', tpl: '<script src=\'%s\'></script>'}}))
     .pipe(gulp.dest('./build'));
 });
 
@@ -178,10 +178,12 @@ gulp.task('copy:files', function() {
 //
 // .. Connect
 //
-gulp.task('connect', connect.server({
-  root: ['./build'],
-  port: 1111
-}));
+gulp.task('connect', function() {
+  connect.server({
+    root: ['./build'],
+    port: 1111
+  });
+});
 
 //
 // .. Watch
@@ -239,7 +241,6 @@ gulp.task('production', ['clean'], function() {
     'stylesheets:production',
     'javascripts:production',
     'images',
-    'copy:stylesheets:vendor',
     'copy:javascripts:polyfills',
     'copy:fonts',
     'copy:files'
