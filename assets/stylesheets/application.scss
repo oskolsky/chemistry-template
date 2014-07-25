@@ -30,18 +30,18 @@
 // .. BASE
 //
 //****************************************************************************************************
-@import "layers/base/reset";
+@import "layers/base/_reset";
 @import "layers/base/grid/grid";
 @import "layers/base/grid/fixed/grid";
 @import "layers/base/grid/fluid/grid";
 @import "layers/base/grid/responsive/grid";
-@import "layers/base/styles";
-@import "layers/base/indents";
+@import "layers/base/_styles";
+@import "layers/base/_indents";
 @import "layers/base/forms";
 @import "layers/base/alerts";
-@import "layers/base/dialogs";
-@import "layers/base/popups";
-@import "layers/base/rub/_rub";
+@import "layers/base/_dialogs";
+@import "layers/base/_popups";
+@import "layers/base/_rub";
 
 
 
@@ -67,7 +67,7 @@
 //****************************************************************************************************
 @import "layers/project/icons";
 @import "layers/project/project";
-@import "layers/project/shame";
+@import "layers/project/_shame";
 
 
 
@@ -101,4 +101,4 @@
 // .. MEDIA
 //
 //****************************************************************************************************
-@import "media/print";
+@import "media/_print";

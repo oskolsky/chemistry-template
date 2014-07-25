@@ -1,0 +1,5 @@
+@include class(dialog) {
+  position: relative;
+  @include prefixes(box-sizing, border-box);
+}
+  @include class(dialog_close) {position: absolute;}

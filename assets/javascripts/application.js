@@ -61,12 +61,12 @@ function formatMoney() {
   $('.format-money').each(function() {
     var c = accounting.settings.currency;
 
-    if ($(this).hasClass('__rub')) {
+    if ($(this).hasClass('format-money__rub')) {
       c.format = '%v';
-    } else if ($(this).hasClass('__usd')) {
+    } else if ($(this).hasClass('format-money__usd')) {
       c.symbol = '$';
       c.format = '%s%v';
-    } else if ($(this).hasClass('__eur')) {
+    } else if ($(this).hasClass('format-money__eur')) {
       c.symbol = '€';
       c.format = '%s%v';
     }
@@ -75,7 +75,7 @@ function formatMoney() {
       money = parseFloat($(this).text().replace(' ', '')),
       formatMoney = accounting.formatMoney(money);
     
-    if ($(this).hasClass('__rub')) {
+    if ($(this).hasClass('format-money__rub')) {
       $(this).text(formatMoney).append('&nbsp;<span class="rub">Р</span>');
     } else {
       $(this).text(formatMoney);

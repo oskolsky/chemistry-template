@@ -27,14 +27,8 @@ th, td {@include prefixes(box-sizing, border-box);}
 // .. Overflow
 //
 .o-h  {overflow: hidden;}
-.ox-h {
-  -ms-overflow-x: hidden;
-      overflow-x: hidden;
-}
-.oy-h {
-  -ms-overflow-y: hidden;
-      overflow-y: hidden;
-}
+.ox-h {@include prefixes(overflow-x, hidden);}
+.oy-h {@include prefixes(overflow-y, hidden);}
 
 //
 // .. Position
@@ -62,7 +56,7 @@ th, td {@include prefixes(box-sizing, border-box);}
 //
 // .. Center
 //
-.b-center {
+@include class(b-center) {
   display: block !important;
   margin-right: auto !important;
   margin-left:  auto !important;
@@ -71,16 +65,18 @@ th, td {@include prefixes(box-sizing, border-box);}
 //
 // .. Clearfix
 //
-.cf::after {
-  display: table;
-  clear: both;
-  content: "";
+@include class(cf) {
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
 }
 
 //
 // .. Container
 //
-.ctn {
+@include class(ctn) {
   display: block;
   margin-right: auto;
   margin-left:  auto;
