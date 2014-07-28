@@ -11,15 +11,5 @@
     %main#main.main{role: "main"}
       %section{role: "region", aria: {label: "Index"}}
         .ctn
-          .pt-4.pb-4
-            %h3.mb-2
-              %span.format-money.format-money__rub.format-money__arial 100000
-            
-            %h3.rub.rub__arial.mb-2 Р
-            
-            %p.tx.__xxl.mb-2
-              %span.format-money.format-money__rub.format-money__times 100000
-
-            %p.tx.__xxl.rub.rub__times Р
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

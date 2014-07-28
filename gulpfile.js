@@ -59,7 +59,8 @@ var paths = {
   fonts: {
     src: './assets/fonts/**/*',
     dest: './build/assets/fonts'
-  }
+  },
+  files: ['./favicon.ico', './humans.txt', './robots.txt'] 
 };
 
 
@@ -167,11 +168,7 @@ gulp.task('copy:fonts', function() {
 });
 
 gulp.task('copy:files', function() {
-  gulp.src([
-    './favicon.ico',
-    './humans.txt',
-    './robots.txt'
-  ])
+  gulp.src(paths.files)
     .pipe(gulp.dest('./build'));
 });
 
@@ -198,7 +195,7 @@ gulp.task('watch', function() {
   gulp.watch(['./assets/stylesheets/vendor/**/*.css'], ['copy:stylesheets:vendor']);
   gulp.watch(['./assets/javascripts/**/*.js'], ['copy:javascripts']);
   gulp.watch(['./assets/images/**/*'], ['copy:images']);
-  gulp.watch(['./favicon.ico', './humans.txt', './robots.txt'], ['copy:files']);
+  gulp.watch(paths.files, ['copy:files']);
 });
 
 

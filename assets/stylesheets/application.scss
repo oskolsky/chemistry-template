@@ -38,7 +38,7 @@
 @import "layers/base/_styles";
 @import "layers/base/_indents";
 @import "layers/base/forms";
-@import "layers/base/alerts";
+@import "layers/base/_alerts";
 @import "layers/base/_dialogs";
 @import "layers/base/_popups";
 @import "layers/base/_rub";
@@ -54,9 +54,9 @@
 @import "layers/styles/links";
 @import "layers/styles/forms";
 @import "layers/styles/content";
-@import "layers/styles/alerts";
-@import "layers/styles/dialogs";
-@import "layers/styles/popups";
+@import "layers/styles/_alerts";
+@import "layers/styles/_dialogs";
+@import "layers/styles/_popups";
 
 
 
