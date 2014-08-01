@@ -25,7 +25,6 @@
   };
 
   jQuery.fn[sr] = function(fn) {return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr);};
-
 })(jQuery,'smartresize');
 
 
@@ -61,20 +60,21 @@ function getBrowserScrollSize() {
 
   var inner = $('<div>').css($.extend({}, css));
   var outer = $('<div>').css($.extend({
-    'left':       '-1000px',
-    'overflow':   'scroll',
-    'position':   'absolute',
-    'top':        '-1000px'
+    'left':     '-1000px',
+    'overflow': 'scroll',
+    'position': 'absolute',
+    'top':      '-1000px'
   }, css)).append(inner).appendTo('body')
   .scrollLeft(1000)
   .scrollTop(1000);
 
   var scrollSize = {
     'height': (outer.offset().top - inner.offset().top) || 0,
-    'width': (outer.offset().left - inner.offset().left) || 0
+    'width':  (outer.offset().left - inner.offset().left) || 0
   };
 
   outer.remove();
+  
   return scrollSize;
 }
 
@@ -86,7 +86,6 @@ function getBrowserScrollSize() {
 //
 //****************************************************************************************************
 (function($) {
-
   $.fn.stickyHeader = function() {
     if (window.matchMedia) {
       if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
@@ -105,7 +104,7 @@ function getBrowserScrollSize() {
 
           if (windowScrollTop > headerPositionTop) {
             $page.css({'padding-top': headerOuterHeight + 'px'});
-            $header.addClass('__sticky');
+            $header.addClass('header__sticky');
           }
 
           $(window).scroll(function() {
@@ -114,9 +113,9 @@ function getBrowserScrollSize() {
 
             if (windowScrollTop > headerOffsetTop) {
               $page.css({'padding-top': headerOuterHeight + 'px'});
-              $header.addClass('__sticky');
+              $header.addClass('header__sticky');
             } else {
-              $header.removeClass('__sticky');
+              $header.removeClass('header__sticky');
               $page.css({'padding-top': '0'});
             }
           });
@@ -142,5 +141,4 @@ function getBrowserScrollSize() {
       return this;
     }
   };
-
 })(jQuery);

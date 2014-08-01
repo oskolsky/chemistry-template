@@ -44,7 +44,7 @@ th, td {@include prefixes(box-sizing, border-box);}
 //
 // .. White-space
 //
-.ws-nowrap {white-space: nowrap;}
+.nowrap {white-space: nowrap;}
 
 
 
@@ -86,5 +86,38 @@ th, td {@include prefixes(box-sizing, border-box);}
   @if $grid == "fluid" {
     min-width: $mq-desktop-min-width;
     max-width: $mq-desktop-max-width;
+  }
+  @if $grid == "responsive" {
+    @include mq(desktop) {
+      min-width: $mq-desktop-min-width;
+      max-width: $mq-desktop-max-width;
+    }
+    @include mq(tablet) {
+      min-width: $mq-tablet-min-width;
+      max-width: $mq-tablet-max-width;
+    }
+    @include mq(phone) {
+      min-width: $mq-phone-min-width;
+      max-width: $mq-phone-max-width;
+    }
+    @include prefixes(box-sizing, border-box);
+  }
+}
+
+@if $grid == "responsive" {
+  @include mq(desktop) {
+    .visible-phone,
+    .visible-tablet,
+    .hidden-desktop {display: none !important;}
+  }
+  @include mq(tablet) {
+    .visible-phone,
+    .hidden-tablet,
+    .visible-desktop {display: none !important;}
+  }
+  @include mq(phone) {
+    .hidden-phone,
+    .visible-tablet,
+    .visible-desktop {display: none !important;}
   }
 }

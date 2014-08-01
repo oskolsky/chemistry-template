@@ -19,19 +19,35 @@ var
   connect = require('gulp-connect'),
   watch = require('gulp-watch');
 
-var paths = {
+var path = {
+  build: './build',
   layouts: {
-    src: ['./**/*.haml', '!./views/**/*'],
-    dest: './build'
+    all: './**/*.haml',
+    views: {
+      yep: './views/**/*.haml',
+      nope: '!./views/**/*.haml'
+    },
+    build: {
+      all: './build/**/*.html'
+    }
   },
   stylesheets: {
-    src: './assets/stylesheets/application.scss',
-    dest: './build/assets/stylesheets'
+    all: './assets/stylesheets/**/*.scss',
+    app: './assets/stylesheets/application.scss',
+    dest: './build/assets/stylesheets',
+    vendor: {
+      all: './assets/stylesheets/vendor/**/*.css',
+      dest: './build/assets/stylesheets/vendor'
+    },
+    build: {
+      app: './build/assets/stylesheets/application.css'
+    }
   },
   javascripts: {
-    src: [
+    all: './assets/javascripts/**/*.js',
+    app: '/assets/javascripts/application.js',
+    list: [
       './assets/javascripts/vendor/modernizr-latest.js',
-      // './assets/javascripts/vendor/require.js',
       './assets/javascripts/vendor/jquery-2.1.1.js',
       './assets/javascripts/vendor/jquery-ui.js',
       './assets/javascripts/vendor/underscore.js',
@@ -50,17 +66,30 @@ var paths = {
       './assets/javascripts/application.js',
       './assets/javascripts/project.js'
     ],
-    dest: './build/assets/javascripts'
+    dest: './build/assets/javascripts',
+    vendor: {
+      nope: '!./assets/javascripts/**/vendor/*.js'
+    },
+    polyfills: {
+      all: './assets/javascripts/polyfills/vendor/**/*.js',
+      dest: './build/assets/javascripts/polyfills/vendor' 
+    }
   },
   images: {
-    src: './assets/images/**/*',
+    all: './assets/images/**/*',
     dest: './build/assets/images'
   },
   fonts: {
-    src: './assets/fonts/**/*',
+    all: './assets/fonts/**/*',
     dest: './build/assets/fonts'
   },
-  files: ['./favicon.ico', './humans.txt', './robots.txt'] 
+  files: {
+    list: [
+      './favicon.ico',
+      './humans.txt',
+      './robots.txt'
+    ]
+  }
 };
 
 
@@ -74,7 +103,7 @@ var paths = {
 // .. Clean
 //
 gulp.task('clean', function() {
-  return gulp.src('./build', {read: false})
+  return gulp.src(path.build, {read: false})
     .pipe(clean());
 });
 
@@ -82,94 +111,94 @@ gulp.task('clean', function() {
 // .. Layouts
 //
 gulp.task('layouts:development/staging', function() {
-  return gulp.src(paths.layouts.src)
+  return gulp.src([path.layouts.all, path.layouts.views.nope])
     .pipe(haml({doubleQuote: true}))
-    .pipe(gulp.dest(paths.layouts.dest));
+    .pipe(gulp.dest(path.build));
 });
 
 gulp.task('layouts:production', ['layouts:development/staging'], function() {
-  return gulp.src('./build/**/*.html')
-    .pipe(htmlreplace({javascripts: {src: '/assets/javascripts/application.js', tpl: '<script src=\'%s\'></script>'}}))
-    .pipe(gulp.dest('./build'));
+  return gulp.src(path.layouts.build.all)
+    .pipe(htmlreplace({javascripts: {src: path.javascripts.app, tpl: '<script src=\'%s\'></script>'}}))
+    .pipe(gulp.dest(path.build));
 });
 
 //
 // .. Stylesheets
 //
 gulp.task('stylesheets:development', function() {
-  return gulp.src(paths.stylesheets.src)
+  return gulp.src(path.stylesheets.app)
     .pipe(sass({noCache: true}))
-    .pipe(gulp.dest(paths.stylesheets.dest));
+    .pipe(gulp.dest(path.stylesheets.dest));
 });
 
 gulp.task('stylesheets:staging', ['stylesheets:development'], function() {
-  return gulp.src('./build/assets/stylesheets/application.css')
+  return gulp.src(path.stylesheets.build.app)
     .pipe(autoprefixer('last 2 versions', 'ie 9'))
-    .pipe(gulp.dest(paths.stylesheets.dest));
+    .pipe(gulp.dest(path.stylesheets.dest));
 });
 
 gulp.task('stylesheets:production', ['stylesheets:staging'], function() {
-  return gulp.src('./build/assets/stylesheets/application.css')
+  return gulp.src(path.stylesheets.build.app)
     .pipe(cssmin())
-    .pipe(gulp.dest(paths.stylesheets.dest));
+    .pipe(gulp.dest(path.stylesheets.dest));
 });
 
 //
 // .. Javascripts
 //
 gulp.task('javascripts:staging', function() {
-  return gulp.src(['./assets/javascripts/*.js', './assets/javascripts/polyfills/*.js'])
+  return gulp.src([path.javascripts.all, path.javascripts.vendor.nope])
     .pipe(jshint())
     .pipe(jshint.reporter());
 });
 
 gulp.task('javascripts:production', ['javascripts:staging'], function() {
-  return gulp.src(paths.javascripts.src)
+  return gulp.src(path.javascripts.list)
     .pipe(concat('application.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(paths.javascripts.dest))
+    .pipe(gulp.dest(path.javascripts.dest))
 });
 
 //
 // .. Images
 //
 gulp.task('images', function() {
-  gulp.src(paths.images.src)
+  gulp.src(path.images.all)
     .pipe(imagemin())
-    .pipe(gulp.dest(paths.images.dest));
+    .pipe(gulp.dest(path.images.dest));
 });
 
 //
 // .. Copy
 //
 gulp.task('copy:stylesheets:vendor', function() {
-  gulp.src('./assets/stylesheets/vendor/**/*')
-    .pipe(gulp.dest('./build/assets/stylesheets/vendor'));
+  gulp.src(path.stylesheets.vendor.all)
+    .pipe(gulp.dest(path.stylesheets.vendor.dest));
 });
 
 gulp.task('copy:javascripts', function() {
-  gulp.src('./assets/javascripts/**/*.js')
-    .pipe(gulp.dest('./build/assets/javascripts'));
+  gulp.src(path.javascripts.all)
+    .pipe(gulp.dest(path.javascripts.dest));
 });
 
 gulp.task('copy:javascripts:polyfills', function() {
-  gulp.src('./assets/javascripts/polyfills/vendor/**/*.js')
-    .pipe(gulp.dest('./build/assets/javascripts/polyfills/vendor'));
+  gulp.src(path.javascripts.polyfills.all)
+    .pipe(gulp.dest(path.javascripts.polyfills.dest));
 });
 
 gulp.task('copy:images', function() {
-  gulp.src(paths.images.src)
-    .pipe(gulp.dest(paths.images.dest));
+  gulp.src(path.images.all)
+    .pipe(gulp.dest(path.images.dest));
 });
 
 gulp.task('copy:fonts', function() {
-  gulp.src(paths.fonts.src)
-    .pipe(gulp.dest(paths.fonts.dest));
+  gulp.src(path.fonts.all)
+    .pipe(gulp.dest(path.fonts.dest));
 });
 
 gulp.task('copy:files', function() {
-  gulp.src(paths.files)
-    .pipe(gulp.dest('./build'));
+  gulp.src(path.files.list)
+    .pipe(gulp.dest(path.build));
 });
 
 //
@@ -177,7 +206,7 @@ gulp.task('copy:files', function() {
 //
 gulp.task('connect', function() {
   connect.server({
-    root: ['./build'],
+    root: [path.build],
     port: 1111
   });
 });
@@ -186,16 +215,16 @@ gulp.task('connect', function() {
 // .. Watch
 //
 gulp.task('watch', function() {
-  gulp.src(['./**/*.haml', '!./views/**/*.haml'], {read: false})
+  gulp.src([path.layouts.all, path.layouts.views.nope], {read: false})
     .pipe(watch())
     .pipe(haml({doubleQuote: true}))
-    .pipe(gulp.dest(paths.layouts.dest));
-  gulp.watch(['./views/**/*.haml'], ['layouts:development/staging']);
-  gulp.watch(['./assets/stylesheets/**/*.scss'], ['stylesheets:development']);
-  gulp.watch(['./assets/stylesheets/vendor/**/*.css'], ['copy:stylesheets:vendor']);
-  gulp.watch(['./assets/javascripts/**/*.js'], ['copy:javascripts']);
-  gulp.watch(['./assets/images/**/*'], ['copy:images']);
-  gulp.watch(paths.files, ['copy:files']);
+    .pipe(gulp.dest(path.build));
+  gulp.watch(path.layouts.views.yep, ['layouts:development/staging']);
+  gulp.watch(path.stylesheets.all, ['stylesheets:development']);
+  gulp.watch(path.stylesheets.vendor.all, ['copy:stylesheets:vendor']);
+  gulp.watch(path.javascripts.all, ['copy:javascripts']);
+  gulp.watch(path.images.all, ['copy:images']);
+  gulp.watch(path.files.list, ['copy:files']);
 });
 
 

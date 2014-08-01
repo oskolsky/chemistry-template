@@ -13,10 +13,10 @@
 //
 //****************************************************************************************************
 $mq-phone-min-width:   320px;
-$mq-phone-max-width:   640px;
-$mq-tablet-min-width:  641px;
-$mq-tablet-max-width:  940px;
-$mq-desktop-min-width: 941px;
+$mq-phone-max-width:   639px;
+$mq-tablet-min-width:  640px;
+$mq-tablet-max-width:  939px;
+$mq-desktop-min-width: 940px;
 $mq-desktop-max-width: 1180px;
 
 
@@ -119,7 +119,7 @@ $muted-color: #ccc;
 //
 // .. Focus
 //
-$focus: true; // .. true / false
+$focus-style: true; // .. true / false
 
 //
 // .. Links
@@ -128,13 +128,13 @@ $link-color: #2980b9;
 $link-color-hover: #ccc;
 $link-color-active: darken($link-color-hover, 10%);
 $link-style: un;        // .. nn / uu / un / nu
-$link-style-pseudo: uu; // .. nn / uu / un
+$link-style-pseudo: uu; // .. uu / un
 
 //
-// .. Content styles
+// .. Content
 //
 $content-factor: 2;
-$content-link: false; // .. true / false
+$content-link-style: false; // .. true / false
 $content-link-color: #0000cd;
 $content-link-color-hover: #ccc;
 $content-link-color-active: darken($content-link-color-hover, 10%);

@@ -1,0 +1,83 @@
+a {
+  color: $link-color;
+  &:hover,
+  &.hover  {color: $link-color-hover;}
+  &:active {color: $link-color-active;}
+  @if $focus-style == true {
+    &:focus {@extend %focus-style;}
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+.alpha, .beta, .gamma, .delta, .epsilon, .zeta {
+  a, a:hover, a.hover,
+  .a-inner_tx, .a-inner:hover .a-inner_tx, .a-inner.hover .a-inner_tx {text-decoration: none;}
+}
+
+.a-inner,
+.a-inner:hover,
+.a-inner.hover,
+.a-pseudo,
+.a-pseudo:hover,
+.a-pseudo.hover {text-decoration: none;}
+  .a-inner_ico,
+  .a-pseudo_ico {vertical-align: middle;}
+
+
+
+//****************************************************************************************************
+//
+// .. LINKS
+//
+//****************************************************************************************************
+@if $link-style == nn or $link-style == uu {
+  a:not(.a-pseudo),
+  .a-inner {@include prefixes(transition, color .33s ease);}
+}
+
+@if $link-style == nn {
+  a, .a-inner_tx {text-decoration: none;}
+} @else if $link-style == uu {
+  a, .a-inner_tx {text-decoration: underline;}
+} @else if $link-style == un {
+  a, .a-inner_tx {text-decoration: underline;}
+  
+  a:hover,
+  a.hover,
+  .a-inner:hover .a-inner_tx,
+  .a-inner.hover .a-inner_tx {text-decoration: none;}
+} @else if $link-style == nu {
+  a, .a-inner_tx {text-decoration: none;}
+
+  a:hover,
+  a.hover,
+  .a-inner:hover .a-inner_tx,
+  .a-inner.hover .a-inner_tx {text-decoration: underline;}
+}
+
+
+
+//****************************************************************************************************
+//
+// .. PSEUDOLINKS
+//
+//****************************************************************************************************
+.a-pseudo_tx {border-bottom: .1em dotted $link-color;}
+
+@if $link-style-pseudo == uu {
+  .a-pseudo {
+    @include prefixes(transition, color .33s ease);
+    &:hover,
+    &.hover {
+      .a-pseudo_tx {border-bottom-color: $link-color-hover;} 
+    }
+  }
+    .a-pseudo_tx {@include prefixes(transition, border .33s ease);}
+} @else if $link-style-pseudo == un {
+  .a-pseudo {
+    &:hover,
+    &.hover {
+      .a-pseudo_tx {border-bottom-color: transparent;}
+    } 
+  }
+}

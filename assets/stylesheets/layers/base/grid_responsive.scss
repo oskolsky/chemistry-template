@@ -37,7 +37,7 @@
   //
   // .. Desktop
   //
-  @include media-query(desktop) {
+  @include mq(desktop) {
     .grid {
       &.__no-gutter {
         > .grid-i {
@@ -62,7 +62,7 @@
   //
   // .. Tablet
   //
-  @include media-query(tablet) {
+  @include mq(tablet) {
     .grid {
       &.__no-gutter {
         > .grid-i {
@@ -88,7 +88,7 @@
   //
   // .. Phone
   //
-  @include media-query(phone) {
+  @include mq(phone) {
     .grid {
       &.__no-gutter {
         > .grid-i {

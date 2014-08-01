@@ -1,3 +1,5 @@
+$grid-fixed-ctn-width: ($grid-fixed-col-width + $grid-fixed-col-gutter) * $grid-fixed-col-qty - $grid-fixed-col-gutter;
+
 @mixin grid-fixed($classname, $property, $gutter1, $gutter2) {
   $result: 0;
   @for $i from 1 through $grid-fixed-col-qty {

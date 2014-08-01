@@ -8,7 +8,7 @@
   //
   // .. Links
   //
-  @if $content-link == true {
+  @if $content-link-style == true {
     a {
       color: $content-link-color;
       &:hover  {color: $content-link-color-hover;}
@@ -181,7 +181,7 @@
       float: left;
       margin-right: #{$content-factor}rem;
       @if $grid == "responsive" {
-        @include media-query(phone) {
+        @include mq(phone) {
           float: none;
           margin-right: 0;
           margin-bottom: #{$content-factor / 2}rem;

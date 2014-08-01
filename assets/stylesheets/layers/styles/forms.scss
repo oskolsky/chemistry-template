@@ -2,7 +2,7 @@ button, input, select, textarea {
   -webkit-border-radius: 0;
             font-family: inherit;
      -webkit-appearance: none;
-  @if $focus == true {
+  @if $focus-style == true {
     &:focus {@extend %focus-style;}
   }
 }
@@ -32,7 +32,7 @@ input {
 
   &.__real {cursor: pointer;}
   
-  @if $focus == true {
+  @if $focus-style == true {
     &.__focus {@extend %focus-style;}
   }
 

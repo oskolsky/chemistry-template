@@ -1,6 +1,6 @@
 @if $grid == "responsive" {
-  @include media-query(tablet) {body {padding-top: 0 !important;}}
-  @include media-query(phone)  {body {padding-top: 0 !important;}}
+  @include mq(tablet) {body {padding-top: 0 !important;}}
+  @include mq(phone)  {body {padding-top: 0 !important;}}
 }
 
 
@@ -11,16 +11,17 @@
 //
 //****************************************************************************************************
 .header {
-  @include media-query(desktop) {
-    &.__sticky {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1000;
-      background: $base-bg;
-      box-shadow: .1em .1em .3em rgba(0,0,0,.25);
-    }
+  
+}
+@include mq(desktop) {
+  .header__sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: $base-bg;
+    box-shadow: .1em .1em .3em rgba(0,0,0,.25);
   }
 }
 

@@ -7,8 +7,8 @@
 // .. SYSTEM
 //
 //****************************************************************************************************
-@import "config";
-@import "helpers";
+@import "_config";
+@import "_mixins";
 
 
 
@@ -31,10 +31,10 @@
 //
 //****************************************************************************************************
 @import "layers/base/_reset";
-@import "layers/base/grid/grid";
-@import "layers/base/grid/fixed/grid";
-@import "layers/base/grid/fluid/grid";
-@import "layers/base/grid/responsive/grid";
+@import "layers/base/_grid";
+@import "layers/base/grid_fixed";
+@import "layers/base/grid_fluid";
+@import "layers/base/grid_responsive";
 @import "layers/base/_styles";
 @import "layers/base/_indents";
 @import "layers/base/forms";
@@ -50,10 +50,10 @@
 // .. STYLES
 //
 //****************************************************************************************************
-@import "layers/styles/styles";
-@import "layers/styles/links";
+@import "layers/styles/_styles";
+@import "layers/styles/_links";
 @import "layers/styles/forms";
-@import "layers/styles/content";
+@import "layers/styles/_content";
 @import "layers/styles/_alerts";
 @import "layers/styles/_dialogs";
 @import "layers/styles/_popups";
@@ -65,34 +65,9 @@
 // .. PROJECT
 //
 //****************************************************************************************************
-@import "layers/project/icons";
-@import "layers/project/project";
+@import "layers/project/_icons";
+@import "layers/project/_project";
 @import "layers/project/_shame";
-
-
-
-//****************************************************************************************************
-//
-// .. RESPONSIVE
-//
-//****************************************************************************************************
-@media all and (max-width: $mq-phone-max-width) {
-  @import "layers/base/responsive/phone/styles";
-  @import "layers/styles/responsive/phone/styles";
-  @import "layers/project/responsive/phone/project";
-}
-
-@media all and (min-width: $mq-tablet-min-width) and (max-width: $mq-tablet-max-width) {
-  @import "layers/base/responsive/tablet/styles";
-  @import "layers/styles/responsive/tablet/styles";
-  @import "layers/project/responsive/tablet/project";
-}
-
-@media all and (min-width: $mq-desktop-min-width) {
-  @import "layers/base/responsive/desktop/styles";
-  @import "layers/styles/responsive/desktop/styles";
-  @import "layers/project/responsive/desktop/project";
-}
 
 
 

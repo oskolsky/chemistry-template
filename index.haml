@@ -11,5 +11,57 @@
     %main#main.main{role: "main"}
       %section{role: "region", aria: {label: "Index"}}
         .ctn
+          %h3
+            %a.double-hover{href: "#1"} Link
+          
+          %br
+
+          %h3
+            %a.a-inner.double-hover{href: "#1"}
+              %i.fa.fa-external-link.ico.a-inner_ico
+              %span.a-inner_tx Link
+          
+          %br
+
+          // .. Links
+          %p
+            %a.double-hover{href: "#2"} Link
+          
+          %br
+          
+          %p
+            %a.a-inner.double-hover{href: "#2"}
+              &laquo;
+              %span.a-inner_tx>< Link
+              &raquo;
+          
+          %br
+          
+          %p
+            %a.a-inner.double-hover{href: "#2"}
+              %i.fa.fa-external-link.ico.a-inner_ico
+              %span.a-inner_tx Link
+          
+          %br
+          
+          // .. Pseudo
+          %p
+            %a.a-pseudo.double-hover{href: "#3"}
+              %span.a-pseudo_tx Pseudolink
+          
+          %br
+          
+          %p
+            %a.a-pseudo.double-hover{href: "#3"}
+              &laquo;
+              %span.a-pseudo_tx>< Pseudolink
+              &raquo;
+          
+          %br
+          
+          %p
+            %a.a-pseudo.double-hover{href: "#3"}
+              %i.fa.fa-external-link.ico.a-pseudo_ico
+              %span.a-pseudo_tx Pseudolink
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
