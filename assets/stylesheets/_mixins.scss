@@ -25,8 +25,8 @@
 }
 
 @mixin size($w, $h) {
-  width:  #{$w}px;
-  height: #{$h}px;
+  width:  #{$w};
+  height: #{$h};
 }
 
 @mixin linear-gradient($direction, $start, $end) {

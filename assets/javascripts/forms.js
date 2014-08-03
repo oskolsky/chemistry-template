@@ -86,8 +86,8 @@
   var
     SelectHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form-el.__fake');
-      this.$label = this.$fake.find('p');
+      this.$fake = this.$el.closest('.form-select');
+      this.$label = this.$fake.find('.form-select_tx');
 
       this.$el.change(this.refresh.bind(this));
       listenFocus(this.$fake, this.$el);
@@ -107,8 +107,8 @@
   var
     FileInputHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form-el.__fake');
-      this.$label = this.$fake.find('p');
+      this.$fake = this.$el.closest('.form-file');
+      this.$label = this.$fake.find('.form-file_tx');
       this.placeholder = this.$fake.attr('data-placeholder');
 
       var

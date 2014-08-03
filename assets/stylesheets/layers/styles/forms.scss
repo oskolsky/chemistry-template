@@ -1,7 +1,7 @@
 button, input, select, textarea {
-  -webkit-border-radius: 0;
+  // -webkit-border-radius: 0;
             font-family: inherit;
-     -webkit-appearance: none;
+     // -webkit-appearance: none;
   @if $focus-style == true {
     &:focus {@extend %focus-style;}
   }
@@ -15,9 +15,9 @@ button, input {
 }
 
 input {
-  &::-ms-clear {display: none;}
-  &[type="search"]::-webkit-search-cancel-button,
-  &[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}
+  // &::-ms-clear {display: none;}
+  // &[type="search"]::-webkit-search-cancel-button,
+  // &[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}
 }
 
 

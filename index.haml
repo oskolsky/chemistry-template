@@ -10,58 +10,73 @@
     
     %main#main.main{role: "main"}
       %section{role: "region", aria: {label: "Index"}}
-        .ctn
-          %h3
-            %a.double-hover{href: "#1"} Link
-          
-          %br
+        .pt-4.pb-4
+          .ctn
 
-          %h3
-            %a.a-inner.double-hover{href: "#1"}
-              %i.fa.fa-external-link.ico.a-inner_ico
-              %span.a-inner_tx Link
-          
-          %br
 
-          // .. Links
-          %p
-            %a.double-hover{href: "#2"} Link
-          
-          %br
-          
-          %p
-            %a.a-inner.double-hover{href: "#2"}
-              &laquo;
-              %span.a-inner_tx>< Link
-              &raquo;
-          
-          %br
-          
-          %p
-            %a.a-inner.double-hover{href: "#2"}
-              %i.fa.fa-external-link.ico.a-inner_ico
-              %span.a-inner_tx Link
-          
-          %br
-          
-          // .. Pseudo
-          %p
-            %a.a-pseudo.double-hover{href: "#3"}
-              %span.a-pseudo_tx Pseudolink
-          
-          %br
-          
-          %p
-            %a.a-pseudo.double-hover{href: "#3"}
-              &laquo;
-              %span.a-pseudo_tx>< Pseudolink
-              &raquo;
-          
-          %br
-          
-          %p
-            %a.a-pseudo.double-hover{href: "#3"}
-              %i.fa.fa-external-link.ico.a-pseudo_ico
-              %span.a-pseudo_tx Pseudolink
+            
+            %form.form.js-form{action: "#"}
+              
+              .mb-2
+                .grid
+                  .grid-i.__grid-3
+                    .form-el.form-el__block.form-tx
+                      %input.form-el_tag.form-tx_tag{type: "text", placeholder: "Text"}
+              .mb-2
+                .grid
+                  .grid-i.__grid-6
+                    .form-el.form-el__block.form-tx
+                      %input.form-el_tag.form-tx_tag{type: "text", placeholder: "Text", value: "Text"}
+              
+              .mb-2
+                .form-el.form-btn
+                  %input.form-el_tag.form-btn_tag{type: "button", value: "Кнопка"}
+
+              .mb-2
+                .grid
+                  .grid-i.__grid-3
+                    .form-el.form-el__block.form-btn
+                      %button.form-el_tag.form-btn_tag{type: "submit"} Отправить
+              
+              .mb-2
+                .grid
+                  .grid-i.__grid-6
+                    .form-el.form-el__block.form-textarea
+                      %textarea.form-el_tag.form-textarea_tag{rows: "4", placeholder: "Textarea"}
+
+              .mb-2
+                .grid
+                  .grid-i.__grid-3
+                    .form-el.form-el__block.form-select
+                      %select.form-el_tag.form-select_tag
+                        %option{selected: "selected"} Alpha
+                        %option Beta
+                        %option Gamma
+                        %option Delta
+                        %option Epsilon
+                        %option Zeta
+                        %option Huge, extremely long text in option tag
+                      %p.form-el_tx.form-select_tx &nbsp;
+
+              .mb-2
+                .grid
+                  .grid-i.__grid-3
+                    .form-el.form-el__block.form-file
+                      %input.form-el_tag.form-file_tag{type: "file"}
+                      %p.form-el_tx.form-file_tx Выберите файл...
+
+
+              
+              .mb-2
+                .form-el.form-el-checkbox
+                  %input.form-el_el{type: "checkbox", checked: "checked"}
+              
+              .mb-2
+                .form-el.form-el-radio
+                  %input.form-el_el{type: "radio"}
+              
+              
+
+
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

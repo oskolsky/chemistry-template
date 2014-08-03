@@ -65,7 +65,7 @@ th, td {@include prefixes(box-sizing, border-box);}
 //
 // .. Clearfix
 //
-@include class(cf) {
+@include class(clf) {
   &::after {
     display: table;
     clear: both;

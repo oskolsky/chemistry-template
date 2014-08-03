@@ -176,7 +176,7 @@
   // .. Paragraphs
   //
   p {
-    @extend .cf;
+    @extend %clf;
     > img {
       float: left;
       margin-right: #{$content-factor}rem;
@@ -199,7 +199,7 @@
     background: #eee;
     border: 1px dotted #ccc;
     white-space: normal;
-    @extend .ox-h;
+    @include prefixes(overflow-x, hidden);
     > code {
       position: relative;
       display: block;
