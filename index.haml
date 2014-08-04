@@ -13,10 +13,26 @@
         .pt-4.pb-4
           .ctn
 
-
-            
             %form.form.js-form{action: "#"}
               
+              .mb-2
+                .grid
+                  .grid-i.__grid-3
+                    .form-el.form-el__block.form-tx
+                      %input.form-el_tag.form-tx_tag{type: "text", placeholder: "Text"}
+
+              .mb-2
+                .form-el.form-btn
+                  %input.form-el_tag.form-btn_tag{type: "button", value: "Кнопка"}
+                  %p.form-el_inner.form-btn_inner Кнопка
+
+              .mb-2
+                .grid
+                  .grid-i.__grid-3
+                    .form-el.form-el__block.form-btn
+                      %button.form-el_tag.form-btn_tag{type: "submit"} Отправить
+                      %p.form-el_inner.form-btn_inner Отправить
+
               .mb-2
                 .grid
                   .grid-i.__grid-3
@@ -29,20 +45,10 @@
                       %input.form-el_tag.form-tx_tag{type: "text", placeholder: "Text", value: "Text"}
               
               .mb-2
-                .form-el.form-btn
-                  %input.form-el_tag.form-btn_tag{type: "button", value: "Кнопка"}
-
-              .mb-2
-                .grid
-                  .grid-i.__grid-3
-                    .form-el.form-el__block.form-btn
-                      %button.form-el_tag.form-btn_tag{type: "submit"} Отправить
-              
-              .mb-2
                 .grid
                   .grid-i.__grid-6
                     .form-el.form-el__block.form-textarea
-                      %textarea.form-el_tag.form-textarea_tag{rows: "4", placeholder: "Textarea"}
+                      %textarea.form-el_tag.form-textarea_tag{placeholder: "Textarea"}
 
               .mb-2
                 .grid
@@ -56,24 +62,28 @@
                         %option Epsilon
                         %option Zeta
                         %option Huge, extremely long text in option tag
-                      %p.form-el_tx.form-select_tx &nbsp;
+                      %p.form-el_inner.form-select_inner &nbsp;
 
               .mb-2
                 .grid
                   .grid-i.__grid-3
                     .form-el.form-el__block.form-file
                       %input.form-el_tag.form-file_tag{type: "file"}
-                      %p.form-el_tx.form-file_tx Выберите файл...
-
-
+                      %p.form-el_inner.form-file_inner Выберите файл...
               
               .mb-2
-                .form-el.form-el-checkbox
-                  %input.form-el_el{type: "checkbox", checked: "checked"}
+                .form-el.form-checkbox
+                  %input.form-el_tag.form-checkbox_tag{type: "checkbox"}
+                .form-el.form-checkbox
+                  %input.form-el_tag.form-checkbox_tag{type: "checkbox", checked: "checked"}
               
               .mb-2
-                .form-el.form-el-radio
-                  %input.form-el_el{type: "radio"}
+                .form-el.form-radio
+                  %input.form-el_tag.form-radio_tag{type: "radio", name: "radio"}
+                .form-el.form-radio
+                  %input.form-el_tag.form-radio_tag{type: "radio", name: "radio"}
+                .form-el.form-radio
+                  %input.form-el_tag.form-radio_tag{type: "radio", name: "radio"}
               
               
 

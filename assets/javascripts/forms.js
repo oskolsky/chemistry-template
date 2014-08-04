@@ -12,9 +12,9 @@
 
     listenFocus = function(f, r) {
       r.focus(function() {
-        f.addClass('__focus');
+        f.addClass('form-el__focus');
       }).blur(function() {
-        f.removeClass('__focus');
+        f.removeClass('form-el__focus');
       });
     };
 
@@ -31,7 +31,7 @@
   var
     CheckBoxHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form-el.__fake');
+      this.$fake = this.$el.closest('.form-checkbox');
 
       this.$el.change(this.refresh.bind(this));
       listenFocus(this.$fake, this.$el);
@@ -48,7 +48,7 @@
   var
     RadioButtonHandler = function(element) {
       this.$el = $(element);
-      this.$fake = this.$el.closest('.form-el.__fake');
+      this.$fake = this.$el.closest('.form-radio');
 
       this.$el.change(this.change.bind(this));
       listenFocus(this.$fake, this.$el);
@@ -87,7 +87,7 @@
     SelectHandler = function(element) {
       this.$el = $(element);
       this.$fake = this.$el.closest('.form-select');
-      this.$label = this.$fake.find('.form-select_tx');
+      this.$label = this.$fake.find('.form-select_inner');
 
       this.$el.change(this.refresh.bind(this));
       listenFocus(this.$fake, this.$el);
@@ -108,7 +108,7 @@
     FileInputHandler = function(element) {
       this.$el = $(element);
       this.$fake = this.$el.closest('.form-file');
-      this.$label = this.$fake.find('.form-file_tx');
+      this.$label = this.$fake.find('.form-file_inner');
       this.placeholder = this.$fake.attr('data-placeholder');
 
       var
