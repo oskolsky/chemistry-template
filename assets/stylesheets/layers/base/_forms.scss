@@ -27,9 +27,13 @@ textarea {resize: none;}
   width: 100%;
 }
 
-  .form-el_tag {@include prefixes(box-sizing, border-box);}
+  .form-el_tag {
+    font-family: inherit;
+    @include prefixes(box-sizing, border-box);
+  }
 
   .form-el_inner {
+    font-family: inherit;
     overflow: hidden;
     white-space: nowrap;
   }
@@ -60,21 +64,12 @@ textarea {resize: none;}
 .form-btn_inner {font-size: inherit;}
 
 //
-// .. Text
+// .. Text, textarea
 //
-.form-tx_tag {
-  padding: inherit;
-  color: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  @extend %form-el-tag-stretch;
-}
-
-//
-// .. Textarea
-//
+.form-tx_tag,
 .form-textarea_tag {
   padding: inherit;
+  color: inherit;
   font-size: inherit;
   line-height: inherit;
   @extend %form-el-tag-stretch;

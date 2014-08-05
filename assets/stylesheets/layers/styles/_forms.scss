@@ -19,10 +19,7 @@
     .form-el__focus {@extend %focus-style;}
   }
   
-  .form-el_tag {
-    font-family: inherit;
-    &[disabled] {cursor: no-drop;}
-  }
+  .form-el_tag[disabled] {cursor: no-drop;}
 
 //
 // .. Label
