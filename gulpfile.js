@@ -11,6 +11,7 @@ var
   htmlreplace = require('gulp-html-replace'),
   sass = require('gulp-ruby-sass'),
   autoprefixer = require('gulp-autoprefixer'),
+  csscomb = require('gulp-csscomb'),
   cssmin = require('gulp-cssmin'),
   jshint = require('gulp-jshint'),
   concat = require('gulp-concat'),
@@ -52,12 +53,13 @@ var path = {
       './assets/javascripts/vendor/jquery-ui.js',
       './assets/javascripts/vendor/underscore.js',
       './assets/javascripts/vendor/backbone.js',
-      './assets/javascripts/vendor/owl.carousel.js',
-      './assets/javascripts/vendor/jquery.arcticmodal.js',
+      './assets/javascripts/vendor/fastclick.js',
       './assets/javascripts/vendor/selectordie.js',
+      './assets/javascripts/vendor/accounting.js',
+      './assets/javascripts/vendor/jquery.arcticmodal.js',
+      './assets/javascripts/vendor/owl.carousel.js',
       './assets/javascripts/vendor/imagesloaded.pkgd.js',
       './assets/javascripts/vendor/masonry.pkgd.js',
-      './assets/javascripts/vendor/accounting.js',
       './assets/javascripts/polyfills/polyfills.js',
       './assets/javascripts/config.js',
       './assets/javascripts/jquery.extensions.js',
@@ -134,6 +136,7 @@ gulp.task('stylesheets:development', function() {
 gulp.task('stylesheets:staging', ['stylesheets:development'], function() {
   return gulp.src(path.stylesheets.build.app)
     .pipe(autoprefixer('last 2 versions', 'ie 9'))
+    .pipe(csscomb())
     .pipe(gulp.dest(path.stylesheets.dest));
 });
 
