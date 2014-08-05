@@ -1,0 +1,134 @@
+%form-el-tag-stretch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @include size(100%, 100%);
+}
+
+textarea {resize: none;}
+
+
+
+//****************************************************************************************************
+//
+// .. ELEMENTS
+//
+//****************************************************************************************************
+.form-el {
+  position: relative;
+  display: inline-block;
+  @include prefixes(box-sizing, border-box);
+}
+
+.form-el__block {
+  display: block;
+  width: 100%;
+}
+
+  .form-el_tag {@include prefixes(box-sizing, border-box);}
+
+  .form-el_inner {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+//
+// .. Label
+//
+.form-label__checkbox {
+  position: relative;
+  .form-checkbox,
+  .form-radio {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    @include prefixes(transform, translateY(-50%));
+  }
+}
+
+//
+// .. Button
+//
+.form-btn_tag {
+  font-size: 0;
+  cursor: inherit;
+  @extend %form-el-tag-stretch;
+}
+
+.form-btn_inner {font-size: inherit;}
+
+//
+// .. Text
+//
+.form-tx_tag {
+  padding: inherit;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  @extend %form-el-tag-stretch;
+}
+
+//
+// .. Textarea
+//
+.form-textarea_tag {
+  padding: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  @extend %form-el-tag-stretch;
+}
+
+//
+// .. Checkbox, radio
+//
+.form-checkbox[data-checked="true"]::after,
+.form-radio[data-checked="true"]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  @include prefixes(transform, translate(-50%, -50%));
+}
+  .form-checkbox_tag,
+  .form-radio_tag {
+    z-index: 2;
+    cursor: inherit;
+    opacity: 0;
+    @extend %form-el-tag-stretch;
+  }
+
+//
+// .. Select
+//
+.form-select::after {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  @include prefixes(transform, translateY(-50%));
+}
+  .form-select_tag {
+    z-index: 2;
+    cursor: inherit;
+    opacity: 0;
+    @extend %form-el-tag-stretch;
+  }
+
+  .form-select_inner {font-size: inherit;}
+
+//
+// .. File
+//
+.form-file::after {
+  position: absolute;
+  top: 50%;
+  @include prefixes(transform, translateY(-50%));
+}
+  .form-file_tag {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .form-file_inner {font-size: inherit;}

@@ -76,7 +76,6 @@ html {
     @include mq(tablet)  {font-size: nth($root-font-size-list, 2);}
     @include mq(phone)   {font-size: nth($root-font-size-list, 3);}
   }
-  @include prefixes(text-size-adjust, 100%);
 }
 
 body {
@@ -212,13 +211,6 @@ img {font-style: italic;}
 .tx-cap   {text-transform: capitalize;}
 .tx-lower {text-transform: lowercase;}
 .tx-upper {text-transform: uppercase;}
-
-[class*="tx-cols-"] {@include prefixes(column-gap, 2%);}
-@if $grid == "fixed" or $grid == "fluid" {
-  @for $i from 2 through 4 {
-    .tx-cols-#{$i} {@include prefixes(column-count, $i);}
-  }
-}
 
 
 

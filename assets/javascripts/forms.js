@@ -18,46 +18,89 @@
       });
     };
 
-
-
   //****************************************************************************************************
   //
   // .. ELEMENTS
   //
   //****************************************************************************************************
   //
+  // .. Button
+  //
+  var
+    ButtonHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
+
+      listenFocus(this.$el, this.$tag);
+    };
+
+    ButtonHandler.prototype.refresh = function() {
+      updateValidDisabled(this.$el, this.$tag);
+    };
+
+  //
+  // .. Text
+  //
+  var
+    TextHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
+
+      listenFocus(this.$el, this.$tag);
+    };
+
+    TextHandler.prototype.refresh = function() {
+      updateValidDisabled(this.$el, this.$tag);
+    };
+
+  //
+  // .. Textarea
+  //
+  var
+    TextareaHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
+
+      listenFocus(this.$el, this.$tag);
+    };
+
+    TextareaHandler.prototype.refresh = function() {
+      updateValidDisabled(this.$el, this.$tag);
+    };
+
+  //
   // .. Checkbox
   //
   var
-    CheckBoxHandler = function(element) {
-      this.$el = $(element);
-      this.$fake = this.$el.closest('.form-checkbox');
+    CheckboxHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
 
-      this.$el.change(this.refresh.bind(this));
-      listenFocus(this.$fake, this.$el);
+      this.$tag.change(this.refresh.bind(this));
+      listenFocus(this.$el, this.$tag);
     };
 
-    CheckBoxHandler.prototype.refresh = function() {
-      this.$fake.attr('data-checked', this.$el.prop('checked'));
-      updateValidDisabled(this.$fake, this.$el);
+    CheckboxHandler.prototype.refresh = function() {
+      this.$el.attr('data-checked', this.$tag.prop('checked'));
+      updateValidDisabled(this.$el, this.$tag);
     };
 
   //
   // .. Radio
   //
   var
-    RadioButtonHandler = function(element) {
-      this.$el = $(element);
-      this.$fake = this.$el.closest('.form-radio');
+    RadioHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
 
-      this.$el.change(this.change.bind(this));
-      listenFocus(this.$fake, this.$el);
+      this.$tag.change(this.change.bind(this));
+      listenFocus(this.$el, this.$tag);
     };
 
-    RadioButtonHandler.prototype.change = function() {
+    RadioHandler.prototype.change = function() {
       var
-        form = this.$el.closest('form'),
-        name = this.$el.attr('name'),
+        form = this.$tag.closest('form'),
+        name = this.$tag.attr('name'),
         parent, toRefresh;
 
       if (form.length > 0) {
@@ -67,7 +110,7 @@
       }
 
       if (name) {
-        toRefresh = $(parent).find('[name=' + name.replace(/(:|\.|\[|\])/g,'\\$1') + ']:radio');
+        toRefresh = $(parent).find('[name=' + name + ']:radio');
       } else {
         toRefresh = $(parent).find(':radio');
       }
@@ -75,47 +118,47 @@
       toRefresh.customForm('refresh');
     };
 
-    RadioButtonHandler.prototype.refresh = function() {
-      this.$fake.attr('data-checked', this.$el.prop('checked'));
-      updateValidDisabled(this.$fake, this.$el);
+    RadioHandler.prototype.refresh = function() {
+      this.$el.attr('data-checked', this.$tag.prop('checked'));
+      updateValidDisabled(this.$el, this.$tag);
     };
 
   //
   // .. Select
   //
   var
-    SelectHandler = function(element) {
-      this.$el = $(element);
-      this.$fake = this.$el.closest('.form-select');
-      this.$label = this.$fake.find('.form-select_inner');
+    SelectHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
+      this.$inner = this.$el.find('.form-el_inner');
 
-      this.$el.change(this.refresh.bind(this));
-      listenFocus(this.$fake, this.$el);
+      this.$tag.change(this.refresh.bind(this));
+      listenFocus(this.$el, this.$tag);
     };
 
     SelectHandler.prototype.refresh = function() {
       var
-        text = this.$el.children('option:selected').text();
+        text = this.$tag.children('option:selected').text();
 
-      this.$label.text(text);
-      updateValidDisabled(this.$fake, this.$el);
+      this.$inner.text(text);
+      updateValidDisabled(this.$el, this.$tag);
     };
 
   //
   // .. File
   //
   var
-    FileInputHandler = function(element) {
-      this.$el = $(element);
-      this.$fake = this.$el.closest('.form-file');
-      this.$label = this.$fake.find('.form-file_inner');
-      this.placeholder = this.$fake.attr('data-placeholder');
+    FileHandler = function(tag) {
+      this.$tag = $(tag);
+      this.$el = this.$tag.closest('.form-el');
+      this.$inner = this.$el.find('.form-el_inner');
+      this.placeholder = this.$el.attr('data-placeholder');
 
       var
-        real = this.$el,
+        real = this.$tag,
         locked = false;
 
-      this.$fake.click(function() {
+      this.$el.click(function() {
         if (locked) {
           return;
         }
@@ -126,23 +169,21 @@
           locked = false;
         }
       });
-
-      this.$el.change(this.refresh.bind(this));
-      listenFocus(this.$fake, this.$el);
+      this.$tag.change(this.refresh.bind(this));
+      listenFocus(this.$el, this.$tag);
     };
 
-    FileInputHandler.prototype.refresh = function() {
+    FileHandler.prototype.refresh = function() {
       var
-        filename = this.$el.val().split(/[\\\/]/).pop();
+        filename = this.$tag.val().split(/[\\\/]/).pop();
 
       if (!filename) {
         filename = this.placeholder;
       }
 
-      this.$label.text(filename);
-      updateValidDisabled(this.$fake, this.$el);
+      this.$inner.text(filename);
+      updateValidDisabled(this.$el, this.$tag);
     };
-
 
 
   //****************************************************************************************************
@@ -152,10 +193,13 @@
   //****************************************************************************************************
   var
     customizers = {
-      checkbox: CheckBoxHandler,
-      radio: RadioButtonHandler,
+      button: ButtonHandler,
+      text: TextHandler,
+      textarea: TextareaHandler,
+      checkbox: CheckboxHandler,
+      radio: RadioHandler,
       select: SelectHandler,
-      file: FileInputHandler
+      file: FileHandler
     },
 
     handler = function(el, type) {
@@ -171,7 +215,7 @@
 
   var
     refreshElements = function(selector, type) {
-      this.find(selector).add(this.filter(selector)).each(function() { handler(this, type).refresh(); });
+      this.find(selector).add(this.filter(selector)).each(function() {handler(this, type).refresh();});
     },
     methods = {
       init: function() {
@@ -190,10 +234,19 @@
           var 
             r = refreshElements.bind($(this));
 
-          r(':checkbox', 'checkbox');
-          r(':radio', 'radio');
+          r('button', 'button');
+          r('input[type="button"]', 'button');
+          r('input[type="reset"]', 'button');
+          r('input[type="submit"]', 'button');
+          r('input[type="text"]', 'text');
+          r('input[type="password"]', 'text');
+          r('input[type="email"]', 'text');
+          r('input[type="tel"]', 'text');
+          r('textarea', 'textarea');
+          r('input[type="checkbox"]', 'checkbox');
+          r('input[type="radio"]', 'radio');
           r('select', 'select');
-          r('input:file', 'file');
+          r('input[type="file"]', 'file');
         });
       },
 

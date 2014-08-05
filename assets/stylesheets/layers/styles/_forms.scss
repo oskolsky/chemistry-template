@@ -1,44 +1,41 @@
-%form-el-tag-stretch {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  @include size(100%, 100%);
-}
-
-textarea {resize: none;}
-
-//
-// .. .form-el
-//
 .form-el {
-  position: relative;
-  display: inline-block;
-  @include prefixes(box-sizing, border-box);
+  &[disabled] {
+    background: #eee;
+    opacity: .5;
+  }
+  &[data-valid="true"] {
+    border-color: fade-out(green, .3);
+    background: fade-out(green, .9);
+    color: green;
+  }
+  &[data-valid="false"] {
+    border-color: fade-out(red, .3);
+    background: fade-out(red, .9);
+    color: red;
+  }
 }
 
-.form-el__block {
-  display: block;
-  width: 100%;
-}
-
-@if $focus-style == true {
-  .form-el__focus {@extend %focus-style;}
-}
+  @if $focus-style == true {
+    .form-el__focus {@extend %focus-style;}
+  }
   
   .form-el_tag {
     font-family: inherit;
-    @include prefixes(box-sizing, border-box);
-    @if $focus-style == true {
-      &:focus {@extend %focus-style;}
-    }
+    &[disabled] {cursor: no-drop;}
   }
 
-  .form-el_inner {
-    overflow: hidden;
-    white-space: nowrap;
-  }
+//
+// .. Label
+//
+.form-label__checkbox {
+  cursor: pointer;
+  .form-label_inner {margin-left: 2.4rem;}
+}
+
+//
+// .. Legend
+//
+.form-legend {@extend %delta;}
 
 //
 // .. Button
@@ -48,21 +45,13 @@ textarea {resize: none;}
   height: 3rem;
   border: 1px solid #ccc;
   border-radius: .3rem;
+  cursor: pointer; 
   text-align: center;
   @include linear-gradient(vertical, #eee, #ddd);
   &:not([disabled]):hover  {box-shadow: inset 0 0 .3em rgba(0,0,0,.1);}
   &:not([disabled]):active {@include linear-gradient(vertical, #ddd, #eee);}
 }
-  .form-btn_tag {
-    cursor: pointer;
-    font-size: 0;
-    @extend %form-el-tag-stretch;
-  }
-
-  .form-btn_inner {
-    font-size: inherit;
-    line-height: 2.8rem;
-  }
+  .form-btn_inner {line-height: 2.8rem;}
 
 //
 // .. Text
@@ -74,12 +63,6 @@ textarea {resize: none;}
   border-radius: .3rem;
   background: #fff;
 }
-  .form-tx_tag {
-    padding: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    @extend %form-el-tag-stretch;
-  }
 
 //
 // .. Textarea
@@ -91,12 +74,6 @@ textarea {resize: none;}
   border-radius: .3rem;
   background: #fff;
 }
-  .form-textarea_tag {
-    padding: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    @extend %form-el-tag-stretch;
-  }
 
 //
 // .. Checkbox
@@ -105,23 +82,15 @@ textarea {resize: none;}
   border: 1px solid #ccc;
   border-radius: .3rem;
   background: #fff;
+  cursor: pointer;
   @include size(1.6rem, 1.6rem);
   &[data-checked="true"]::after {
-    color: #666;
-    content: "\f00c";
-    font-family: FontAwesome;
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    text-align: center;
-    @extend %form-el-tag-stretch;
+    background: #666;
+    border-radius: .1rem;
+    content: "";
+    @include size(.6rem, .6rem);
   }
 }
-  .form-checkbox_tag {
-    z-index: 2;
-    cursor: pointer;
-    opacity: 0;
-    @extend %form-el-tag-stretch;
-  }
 
 //
 // .. Radio
@@ -130,25 +99,15 @@ textarea {resize: none;}
   border: 1px solid #ccc;
   border-radius: 50%;
   background: #fff;
+  cursor: pointer;
   @include size(1.6rem, 1.6rem);
   &[data-checked="true"]::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     background: #666;
     border-radius: 50%;
     content: "";
     @include size(.6rem, .6rem);
-    @include prefixes(transform, translate(-50%, -50%));
   }
 }
-  .form-radio_tag {
-    z-index: 2;
-    cursor: pointer;
-    opacity: 0;
-    @extend %form-el-tag-stretch;
-  }
-
 
 //
 // .. Select
@@ -158,27 +117,16 @@ textarea {resize: none;}
   border: 1px solid #ccc;
   border-radius: .3rem;
   background: #fff;
+  cursor: pointer;
   &::after {
-    position: absolute;
-    top: 50%;
     right: 1rem;
-    z-index: 1;
     color: #ccc;
     content: "\f0d7";
     font-family: FontAwesome;
-    @include prefixes(transform, translateY(-50%));
   }
 }
-  .form-select_tag {
-    z-index: 2;
-    cursor: pointer;
-    opacity: 0;
-    @extend %form-el-tag-stretch;
-  }
-
   .form-select_inner {
     margin: 0 2.8rem 0 .75rem;
-    font-size: inherit;
     line-height: 2.8rem;
   }
 
@@ -191,26 +139,15 @@ textarea {resize: none;}
   border-radius: .3rem;
   background: #fff;
   cursor: pointer;
+  &[disabled] {cursor: no-drop;}
   &::after {
-    position: absolute;
-    top: 50%;
     right: .6rem;
-    z-index: 1;
     color: #ccc;
     content: "\f07c";
     font-family: FontAwesome;
-    @include prefixes(transform, translateY(-50%));
   }
 }
-  .form-file_tag {
-    position: absolute;
-    z-index: 2;
-    opacity: 0;
-    @include size(0, 0);
-  }
-
   .form-file_inner {
     margin: 0 2.8rem 0 .75rem;
-    font-size: inherit;
     line-height: 2.8rem;
   }
