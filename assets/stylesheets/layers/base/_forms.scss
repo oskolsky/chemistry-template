@@ -27,10 +27,7 @@ textarea {resize: none;}
   width: 100%;
 }
 
-  .form-el_tag {
-    font-family: inherit;
-    @include prefixes(box-sizing, border-box);
-  }
+  .form-el_tag {@include prefixes(box-sizing, border-box);}
 
   .form-el_inner {
     overflow: hidden;
@@ -60,8 +57,6 @@ textarea {resize: none;}
   @extend %form-el-tag-stretch;
 }
 
-.form-btn_inner {font-size: inherit;}
-
 //
 // .. Text, textarea
 //
@@ -69,6 +64,7 @@ textarea {resize: none;}
 .form-textarea_tag {
   padding: inherit;
   color: inherit;
+  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   @extend %form-el-tag-stretch;
@@ -109,8 +105,6 @@ textarea {resize: none;}
     @extend %form-el-tag-stretch;
   }
 
-  .form-select_inner {font-size: inherit;}
-
 //
 // .. File
 //
@@ -123,6 +117,4 @@ textarea {resize: none;}
     position: absolute;
     top: -9999px;
     left: -9999px;
-  }
-
-  .form-file_inner {font-size: inherit;}
+  }  
