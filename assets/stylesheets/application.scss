@@ -18,8 +18,8 @@
 //
 //****************************************************************************************************
 @import "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css";
-@import "/assets/stylesheets/vendor/jquery.arcticmodal-0.3.css";
 @import "/assets/stylesheets/vendor/selectordie.css";
+@import "/assets/stylesheets/vendor/jquery.arcticmodal-0.3.css";
 @import "/assets/stylesheets/vendor/owl.carousel.css";
 @import "/assets/stylesheets/vendor/animate.css";
 
@@ -32,9 +32,9 @@
 //****************************************************************************************************
 @import "layers/base/_reset";
 @import "layers/base/_grid";
-@import "layers/base/grid_fixed";
-@import "layers/base/grid_fluid";
-@import "layers/base/grid_responsive";
+@import "layers/base/_grid_fixed";
+@import "layers/base/_grid_fluid";
+@import "layers/base/_grid_responsive";
 @import "layers/base/_styles";
 @import "layers/base/_indents";
 @import "layers/base/_forms";

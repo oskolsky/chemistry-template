@@ -20,79 +20,7 @@ var
   connect = require('gulp-connect'),
   watch = require('gulp-watch');
 
-var path = {
-  build: './build',
-  layouts: {
-    all: './**/*.haml',
-    views: {
-      yep: './views/**/*.haml',
-      nope: '!./views/**/*.haml'
-    },
-    build: {
-      all: './build/**/*.html'
-    }
-  },
-  stylesheets: {
-    all: './assets/stylesheets/**/*.scss',
-    app: './assets/stylesheets/application.scss',
-    dest: './build/assets/stylesheets',
-    vendor: {
-      all: './assets/stylesheets/vendor/**/*.css',
-      dest: './build/assets/stylesheets/vendor'
-    },
-    build: {
-      app: './build/assets/stylesheets/application.css'
-    }
-  },
-  javascripts: {
-    all: './assets/javascripts/**/*.js',
-    app: '/assets/javascripts/application.js',
-    list: [
-      './assets/javascripts/vendor/modernizr-latest.js',
-      './assets/javascripts/vendor/jquery-2.1.1.js',
-      './assets/javascripts/vendor/jquery-ui.js',
-      './assets/javascripts/vendor/underscore.js',
-      './assets/javascripts/vendor/backbone.js',
-      './assets/javascripts/vendor/fastclick.js',
-      './assets/javascripts/vendor/selectordie.js',
-      './assets/javascripts/vendor/accounting.js',
-      './assets/javascripts/vendor/jquery.arcticmodal.js',
-      './assets/javascripts/vendor/owl.carousel.js',
-      './assets/javascripts/vendor/imagesloaded.pkgd.js',
-      './assets/javascripts/vendor/masonry.pkgd.js',
-      './assets/javascripts/polyfills/polyfills.js',
-      './assets/javascripts/config.js',
-      './assets/javascripts/jquery.extensions.js',
-      './assets/javascripts/helpers.js',
-      './assets/javascripts/forms.js',
-      './assets/javascripts/application.js',
-      './assets/javascripts/project.js'
-    ],
-    dest: './build/assets/javascripts',
-    vendor: {
-      nope: '!./assets/javascripts/**/vendor/*.js'
-    },
-    polyfills: {
-      all: './assets/javascripts/polyfills/vendor/**/*.js',
-      dest: './build/assets/javascripts/polyfills/vendor' 
-    }
-  },
-  images: {
-    all: './assets/images/**/*',
-    dest: './build/assets/images'
-  },
-  fonts: {
-    all: './assets/fonts/**/*',
-    dest: './build/assets/fonts'
-  },
-  files: {
-    list: [
-      './favicon.ico',
-      './humans.txt',
-      './robots.txt'
-    ]
-  }
-};
+var path = require('./path.json');
 
 
 
@@ -136,7 +64,7 @@ gulp.task('stylesheets:development', function() {
 gulp.task('stylesheets:staging', ['stylesheets:development'], function() {
   return gulp.src(path.stylesheets.build.app)
     .pipe(autoprefixer('last 2 versions', 'ie 9'))
-    .pipe(csscomb())
+    .pipe(csscomb('zen'))
     .pipe(gulp.dest(path.stylesheets.dest));
 });
 
@@ -182,11 +110,6 @@ gulp.task('copy:stylesheets:vendor', function() {
 gulp.task('copy:javascripts', function() {
   gulp.src(path.javascripts.all)
     .pipe(gulp.dest(path.javascripts.dest));
-});
-
-gulp.task('copy:javascripts:polyfills', function() {
-  gulp.src(path.javascripts.polyfills.all)
-    .pipe(gulp.dest(path.javascripts.polyfills.dest));
 });
 
 gulp.task('copy:images', function() {
@@ -270,7 +193,6 @@ gulp.task('production', ['clean'], function() {
     'stylesheets:production',
     'javascripts:production',
     'images',
-    'copy:javascripts:polyfills',
     'copy:fonts',
     'copy:files'
   );

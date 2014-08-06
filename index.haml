@@ -12,13 +12,5 @@
       %section{role: "region", aria: {label: "Index"}}
         .pt-4.pb-4
           .ctn
-            %form.js-form{action: "#"}
-              .grid
-                .grid-i.__grid-4.__prefix-4.__suffix-4>
-                  .form-el.form-el__block.form-tx
-                    %input.form-el_tag.form-tx_tag{type: "text", value: "Text", placeholder: "Textarea", data: {valid: "true"}}
-                .grid-i.__grid-4.__prefix-4.__suffix-4>
-                  .form-el.form-el__block.form-textarea
-                    %textarea.form-el_tag.form-textarea_tag{placeholder: "Textarea", data: {valid: "false"}} Textarea
-              
+
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

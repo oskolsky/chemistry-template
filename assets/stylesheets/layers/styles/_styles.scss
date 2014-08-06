@@ -54,12 +54,6 @@
     }
     line-height: nth($h6-line-height-list, $list);
   }
-  h1 {@extend %alpha;}
-  h2 {@extend %beta;}
-  h3 {@extend %gamma;}
-  h4 {@extend %delta;}
-  h5 {@extend %epsilon;}
-  h6 {@extend %zeta;}
 }
 
 
@@ -107,7 +101,7 @@ img {font-style: italic;}
 
 //****************************************************************************************************
 //
-// .. HEADINGS
+// .. HEADERS
 //
 //****************************************************************************************************
 @if $grid == "fixed" or $grid == "fluid" {@include headers(1);}
@@ -116,6 +110,13 @@ img {font-style: italic;}
   @include mq(tablet)  {@include headers(2);}
   @include mq(phone)   {@include headers(3);}
 }
+
+h1 {@extend %alpha;}
+h2 {@extend %beta;}
+h3 {@extend %gamma;}
+h4 {@extend %delta;}
+h5 {@extend %epsilon;}
+h6 {@extend %zeta;}
 
 
 
