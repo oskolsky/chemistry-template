@@ -13,24 +13,24 @@ $grid-fixed-ctn-width: ($grid-fixed-col-width + $grid-fixed-col-gutter) * $grid-
   @include class(grid) {
     margin-bottom: -#{$grid-fixed-col-indent};
     margin-left: -#{$grid-fixed-col-gutter};
-    @include class-direct-child(grid-i) {
+    @include class-direct-child(grid_i) {
       margin-bottom: #{$grid-fixed-col-indent};
       margin-left: #{$grid-fixed-col-gutter};
     }
-    @include grid-fixed("grid-i__grid", "width", -$grid-fixed-col-gutter, $grid-fixed-col-gutter);
-    @include grid-fixed("grid-i__prefix", "margin-left", $grid-fixed-col-gutter, $grid-fixed-col-gutter);
-    @include grid-fixed("grid-i__suffix", "margin-right", 0, $grid-fixed-col-gutter);
+    @include grid-fixed("grid_i__grid", "width", -$grid-fixed-col-gutter, $grid-fixed-col-gutter);
+    @include grid-fixed("grid_i__prefix", "margin-left", $grid-fixed-col-gutter, $grid-fixed-col-gutter);
+    @include grid-fixed("grid_i__suffix", "margin-right", 0, $grid-fixed-col-gutter);
   }
 
   @include class(grid__collapse) {
     margin-bottom: 0;
     margin-left: 0;
-    @include class-direct-child(grid-i) {
+    @include class-direct-child(grid_i) {
       margin-bottom: 0;
       margin-left: 0;
     }
-    @include grid-fixed("grid-i__grid", "width", 0, 0);
-    @include grid-fixed("grid-i__prefix", "margin-left", 0, 0);
-    @include grid-fixed("grid-i__suffix", "margin-right", 0, 0);
+    @include grid-fixed("grid_i__grid", "width", 0, 0);
+    @include grid-fixed("grid_i__prefix", "margin-left", 0, 0);
+    @include grid-fixed("grid_i__suffix", "margin-right", 0, 0);
   }
 }

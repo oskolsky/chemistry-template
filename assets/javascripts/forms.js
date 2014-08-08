@@ -12,9 +12,9 @@
 
     listenFocus = function(f, r) {
       r.focus(function() {
-        f.addClass('form-el__focus');
+        f.addClass('form_el__focus');
       }).blur(function() {
-        f.removeClass('form-el__focus');
+        f.removeClass('form_el__focus');
       });
     };
 
@@ -29,7 +29,7 @@
   var
     ButtonHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
+      this.$el = this.$tag.closest('.js-form_el');
 
       listenFocus(this.$el, this.$tag);
     };
@@ -44,7 +44,7 @@
   var
     TextHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
+      this.$el = this.$tag.closest('.js-form_el');
 
       listenFocus(this.$el, this.$tag);
     };
@@ -59,7 +59,7 @@
   var
     TextareaHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
+      this.$el = this.$tag.closest('.js-form_el');
 
       listenFocus(this.$el, this.$tag);
     };
@@ -74,7 +74,7 @@
   var
     CheckboxHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
+      this.$el = this.$tag.closest('.js-form_el');
 
       this.$tag.change(this.refresh.bind(this));
       listenFocus(this.$el, this.$tag);
@@ -91,7 +91,7 @@
   var
     RadioHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
+      this.$el = this.$tag.closest('.js-form_el');
 
       this.$tag.change(this.change.bind(this));
       listenFocus(this.$el, this.$tag);
@@ -129,8 +129,8 @@
   var
     SelectHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
-      this.$inner = this.$el.find('.form-el_inner');
+      this.$el = this.$tag.closest('.js-form_el');
+      this.$inner = this.$el.find('.js-form_el_inner');
 
       this.$tag.change(this.refresh.bind(this));
       listenFocus(this.$el, this.$tag);
@@ -150,8 +150,8 @@
   var
     FileHandler = function(tag) {
       this.$tag = $(tag);
-      this.$el = this.$tag.closest('.form-el');
-      this.$inner = this.$el.find('.form-el_inner');
+      this.$el = this.$tag.closest('.js-form_el');
+      this.$inner = this.$el.find('.js-form_el_inner');
       this.placeholder = this.$el.attr('data-placeholder');
 
       var

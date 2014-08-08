@@ -2,8 +2,8 @@
   @for $i from 1 through $grid-responsive-col-qty {
     @for $j from 1 through $i {
       $result: 100% / $i * $j;
-      > %grid-i__#{$media}-#{$classname}-#{$j}-#{$i},
-      > .grid-i__#{$media}-#{$classname}-#{$j}-#{$i} {#{$property}: $result + $indent;}
+      > %grid_i__#{$media}-#{$classname}-#{$j}-#{$i},
+      > .grid_i__#{$media}-#{$classname}-#{$j}-#{$i} {#{$property}: $result + $indent;}
     }
   }
 }
@@ -12,7 +12,7 @@
   @include class(grid) {
     margin-bottom: -$grid-responsive-col-indent;
     margin-left: -$grid-responsive-col-gutter;
-    @include class-direct-child (grid-i) {
+    @include class-direct-child (grid_i) {
       margin-bottom: $grid-responsive-col-indent;
       margin-left: $grid-responsive-col-gutter;
     }
@@ -21,7 +21,7 @@
   @include class(grid__collapse) {
     margin-bottom: 0;
     margin-left: 0;
-    @include class-direct-child (grid-i) {
+    @include class-direct-child (grid_i) {
       margin-bottom: 0;
       margin-left: 0;
     }

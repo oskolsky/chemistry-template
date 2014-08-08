@@ -16,20 +16,19 @@ textarea {resize: none;}
 // .. ELEMENTS
 //
 //****************************************************************************************************
-.form-el {
+.form_el {
   position: relative;
   display: inline-block;
   @include prefixes(box-sizing, border-box);
 }
 
-.form-el__block {
+.form_el__block {
   display: block;
   width: 100%;
 }
+  .form_el_tag {@include prefixes(box-sizing, border-box);}
 
-  .form-el_tag {@include prefixes(box-sizing, border-box);}
-
-  .form-el_inner {
+  .form_el_inner {
     overflow: hidden;
     white-space: nowrap;
   }
@@ -37,10 +36,10 @@ textarea {resize: none;}
 //
 // .. Label
 //
-.form-label__checkbox {
+.form_label__checkbox {
   position: relative;
-  .form-checkbox,
-  .form-radio {
+  .form_checkbox,
+  .form_radio {
     position: absolute;
     top: 50%;
     left: 0;
@@ -51,7 +50,7 @@ textarea {resize: none;}
 //
 // .. Button
 //
-.form-btn_tag {
+.form_btn_tag {
   font-size: 0;
   cursor: inherit;
   @extend %form-el-tag-stretch;
@@ -60,8 +59,8 @@ textarea {resize: none;}
 //
 // .. Text, textarea
 //
-.form-tx_tag,
-.form-textarea_tag {
+.form_tx_tag,
+.form_textarea_tag {
   padding: inherit;
   color: inherit;
   font-family: inherit;
@@ -73,16 +72,16 @@ textarea {resize: none;}
 //
 // .. Checkbox, radio
 //
-.form-checkbox[data-checked="true"]::after,
-.form-radio[data-checked="true"]::after {
+.form_checkbox[data-checked="true"]::after,
+.form_radio[data-checked="true"]::after {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 1;
   @include prefixes(transform, translate(-50%, -50%));
 }
-  .form-checkbox_tag,
-  .form-radio_tag {
+  .form_checkbox_tag,
+  .form_radio_tag {
     z-index: 2;
     cursor: inherit;
     opacity: 0;
@@ -92,13 +91,13 @@ textarea {resize: none;}
 //
 // .. Select
 //
-.form-select::after {
+.form_select::after {
   position: absolute;
   top: 50%;
   z-index: 1;
   @include prefixes(transform, translateY(-50%));
 }
-  .form-select_tag {
+  .form_select_tag {
     z-index: 2;
     cursor: inherit;
     opacity: 0;
@@ -108,12 +107,12 @@ textarea {resize: none;}
 //
 // .. File
 //
-.form-file::after {
+.form_file::after {
   position: absolute;
   top: 50%;
   @include prefixes(transform, translateY(-50%));
 }
-  .form-file_tag {
+  .form_file_tag {
     position: absolute;
     top: -9999px;
     left: -9999px;

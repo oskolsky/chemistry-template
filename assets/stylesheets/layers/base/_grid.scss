@@ -1,4 +1,4 @@
-@include class(grid-i) {
+@include class(grid_i) {
   &:not(td) {
     display: inline-block;
     vertical-align: top;
