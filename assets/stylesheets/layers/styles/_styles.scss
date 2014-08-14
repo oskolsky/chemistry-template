@@ -64,35 +64,35 @@
 //
 //****************************************************************************************************
 html {
-  @if $grid == "fixed" or $grid == "fluid" {font-size: nth($root-font-size-list, 1);}
+  @if $grid == "fixed" or $grid == "fluid" {font-size: nth($root-font-size-list, 3);}
   @if $grid == "responsive" {
-    @include mq(desktop) {font-size: nth($root-font-size-list, 1);}
+    @include mq(phone)   {font-size: nth($root-font-size-list, 1);}
     @include mq(tablet)  {font-size: nth($root-font-size-list, 2);}
-    @include mq(phone)   {font-size: nth($root-font-size-list, 3);}
+    @include mq(desktop) {font-size: nth($root-font-size-list, 3);}
   }
 }
 
 body {
-  @if $grid == "fixed" {min-width: $grid-fixed-ctn-width + $ctn-padding * 2;}
-  @if $grid == "fluid" {min-width: $mq-desktop-min-width + $ctn-padding * 2;}
-  @if $grid == "responsive" {
-    @include mq(desktop) {min-width: $mq-desktop-min-width;}
-    @include mq(tablet)  {min-width: $mq-tablet-min-width;}
-    @include mq(phone)   {min-width: $mq-phone-min-width;}
-  }
   background: $base-bg;
   color: $base-color;
   font: {
     weight: $base-font-weight;
     family: $base-font-family;
   }
+  @if $grid == "fixed" {min-width: $ctn-fixed-width + $ctn-padding * 2;}
+  @if $grid == "fluid" {min-width: $ctn-min-width-list(3) + $ctn-padding * 2;}
+  @if $grid == "responsive" {
+    @include mq(phone)   {min-width: $ctn-min-width-list(1);}
+    @include mq(tablet)  {min-width: $ctn-min-width-list(2);}
+    @include mq(desktop) {min-width: $ctn-min-width-list(3);}
+  }
 }
 
-@if $grid == "fixed" or $grid == "fluid" {@include body(1);}
+@if $grid == "fixed" or $grid == "fluid" {@include body(3);}
 @if $grid == "responsive" {
-  @include mq(desktop) {@include body(1);}
+  @include mq(phone)   {@include body(1);}
   @include mq(tablet)  {@include body(2);}
-  @include mq(phone)   {@include body(3);}
+  @include mq(desktop) {@include body(3);}
 }
 
 img {font-style: italic;}
@@ -104,11 +104,11 @@ img {font-style: italic;}
 // .. HEADERS
 //
 //****************************************************************************************************
-@if $grid == "fixed" or $grid == "fluid" {@include headers(1);}
+@if $grid == "fixed" or $grid == "fluid" {@include headers(3);}
 @if $grid == "responsive" {
-  @include mq(desktop) {@include headers(1);}
+  @include mq(phone)   {@include headers(1);}
   @include mq(tablet)  {@include headers(2);}
-  @include mq(phone)   {@include headers(3);}
+  @include mq(desktop) {@include headers(3);}
 }
 
 h1 {@extend %alpha;}

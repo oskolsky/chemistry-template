@@ -1,37 +1,37 @@
-@mixin mq($mq) {
-  @if $mq == "phone" {
-    @media all and (max-width: $mq-phone-max-width) {@content;}
+@mixin mq($media-query) {
+  @if $media-query == "phone" {
+    @media all and (max-width: $ctn-max-width-list(1)) {@content;}
   }
-  @if $mq == "tablet" {
-    @media all and (min-width: $mq-tablet-min-width) and (max-width: $mq-tablet-max-width) {@content;}
+  @if $media-query == "tablet" {
+    @media all and (min-width: $ctn-min-width-list(2)) and (max-width: $ctn-max-width-list(2)) {@content;}
   }
-  @if $mq == "desktop" {
-    @media all and (min-width: $mq-desktop-min-width) {@content;}
+  @if $media-query == "desktop" {
+    @media all and (min-width: $ctn-min-width-list(3)) {@content;}
   }
 }
 
 // .. Used in development. In staging/production compiled CSS passed through autoprefixer (https://github.com/ai/autoprefixer)
-@mixin prefixes($prop, $val) {
-  -webkit-#{$prop}: $val;
-     -moz-#{$prop}: $val;
-      -ms-#{$prop}: $val;
-       -o-#{$prop}: $val;
-          #{$prop}: $val;
+@mixin prefixes($property, $value) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
 }
 
-@mixin class($c) {
-  %#{$c},
-  .#{$c} {@content;}
+@mixin class($classname) {
+  %#{$classname},
+  .#{$classname} {@content;}
 }
 
-@mixin class-direct-child($c) {
-  > %#{$c},
-  > .#{$c} {@content;}
+@mixin class-direct-child($classname) {
+  > %#{$classname},
+  > .#{$classname} {@content;}
 }
 
-@mixin size($w, $h) {
-  width:  #{$w};
-  height: #{$h};
+@mixin size($width, $height) {
+  width:  #{$width};
+  height: #{$height};
 }
 
 @mixin linear-gradient($direction, $start, $end) {
@@ -39,8 +39,7 @@
   @if ($direction == "horizontal") {
     background: -webkit-linear-gradient(left, $start 0%, $end 100%);
     background:         linear-gradient(to right, $start 0%, $end 100%);
-  }
-  @else if ($direction == "vertical") {
+  } @else if ($direction == "vertical") {
     background: -webkit-linear-gradient(top, $start 0%, $end 100%);
     background:         linear-gradient(to bottom, $start 0%, $end 100%);
   }

@@ -176,7 +176,7 @@
   // .. Paragraphs
   //
   p {
-    @extend %clf;
+    @extend %cf;
     > img {
       float: left;
       margin-right: #{$content-factor}rem;

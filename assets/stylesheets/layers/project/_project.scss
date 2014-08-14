@@ -1,6 +1,6 @@
 @if $grid == "responsive" {
-  @include mq(tablet) {body {padding-top: 0 !important;}}
   @include mq(phone)  {body {padding-top: 0 !important;}}
+  @include mq(tablet) {body {padding-top: 0 !important;}}
 }
 
 

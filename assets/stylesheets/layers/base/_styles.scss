@@ -65,7 +65,7 @@ th, td {@include prefixes(box-sizing, border-box);}
 //
 // .. Clearfix
 //
-@include class(clf) {
+@include class(cf) {
   &::after {
     display: table;
     clear: both;
@@ -82,42 +82,42 @@ th, td {@include prefixes(box-sizing, border-box);}
   margin-left:  auto;
   padding-right: $ctn-padding;
   padding-left:  $ctn-padding;
-  @if $grid == "fixed" {width: #{$grid-fixed-ctn-width};}
+  @if $grid == "fixed" {width: #{$ctn-fixed-width};}
   @if $grid == "fluid" {
-    min-width: $mq-desktop-min-width;
-    max-width: $mq-desktop-max-width;
+    min-width: $ctn-min-width-list(3);
+    max-width: $ctn-max-width-list(3);
   }
   @if $grid == "responsive" {
-    @include mq(desktop) {
-      min-width: $mq-desktop-min-width;
-      max-width: $mq-desktop-max-width;
+    @include mq(phone) {
+      min-width: $ctn-min-width-list(1);
+      max-width: $ctn-max-width-list(1);
     }
     @include mq(tablet) {
-      min-width: $mq-tablet-min-width;
-      max-width: $mq-tablet-max-width;
+      min-width: $ctn-min-width-list(2);
+      max-width: $ctn-max-width-list(2);
     }
-    @include mq(phone) {
-      min-width: $mq-phone-min-width;
-      max-width: $mq-phone-max-width;
+    @include mq(desktop) {
+      min-width: $ctn-min-width-list(3);
+      max-width: $ctn-max-width-list(3);
     }
     @include prefixes(box-sizing, border-box);
   }
 }
 
 @if $grid == "responsive" {
-  @include mq(desktop) {
-    .visible-phone,
+  @include mq(phone) {
+    .hidden-phone,
     .visible-tablet,
-    .hidden-desktop {display: none !important;}
+    .visible-desktop {display: none !important;}
   }
   @include mq(tablet) {
     .visible-phone,
     .hidden-tablet,
     .visible-desktop {display: none !important;}
   }
-  @include mq(phone) {
-    .hidden-phone,
+  @include mq(desktop) {
+    .visible-phone,
     .visible-tablet,
-    .visible-desktop {display: none !important;}
+    .hidden-desktop {display: none !important;}
   }
 }

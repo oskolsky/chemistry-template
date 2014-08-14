@@ -162,7 +162,10 @@ gulp.task('watch', function() {
 //****************************************************************************************************
 gulp.task('default', ['connect', 'watch']);
 
-gulp.task('development', ['clean'], function() {
+//
+// .. Development
+//
+gulp.task('dv', ['clean'], function() {
   gulp.start(
     'layouts:development/staging',
     'stylesheets:development',
@@ -174,7 +177,10 @@ gulp.task('development', ['clean'], function() {
   );
 });
 
-gulp.task('staging', ['clean'], function() {
+//
+// .. Staging
+//
+gulp.task('st', ['clean'], function() {
   gulp.start(
     'layouts:development/staging',
     'stylesheets:staging',
@@ -187,7 +193,10 @@ gulp.task('staging', ['clean'], function() {
   );
 });
 
-gulp.task('production', ['clean'], function() {
+//
+// .. Production
+//
+gulp.task('pr', ['clean'], function() {
   gulp.start(
     'layouts:production',
     'stylesheets:production',
