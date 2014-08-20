@@ -31,7 +31,6 @@
       "./assets/javascripts/vendor/jquery-ui.js",
       "./assets/javascripts/vendor/underscore.js",
       "./assets/javascripts/vendor/backbone.js",
-      "./assets/javascripts/vendor/fastclick.js",
       "./assets/javascripts/vendor/selectordie.js",
       "./assets/javascripts/vendor/accounting.js",
       "./assets/javascripts/vendor/jquery.arcticmodal.js",
