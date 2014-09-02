@@ -50,7 +50,7 @@ accounting.settings = {
 function formatNumber() {
   $('.format-number').each(function() {
     var
-      number = parseInt($(this).text().replace(' ', '')),
+      number = parseInt($(this).text().replace(new RegExp(' ', 'g'), '')),
       formatNumber = accounting.formatNumber(number);
 
     $(this).text(formatNumber);
@@ -72,7 +72,7 @@ function formatMoney() {
     }
 
     var
-      money = parseFloat($(this).text().replace(' ', '')),
+      money = parseFloat($(this).text().replace(new RegExp(' ', 'g'), '')),
       formatMoney = accounting.formatMoney(money);
     
     if ($(this).hasClass('format-money__rub')) {
