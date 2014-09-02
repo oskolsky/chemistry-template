@@ -1,12 +1,12 @@
 @mixin mq($media-query) {
   @if $media-query == "phone" {
-    @media all and (max-width: $ctn-max-width-list(1)) {@content;}
+    @media all and (max-width: nth($ctn-responsive-max-width-list, 1)) {@content;}
   }
   @if $media-query == "tablet" {
-    @media all and (min-width: $ctn-min-width-list(2)) and (max-width: $ctn-max-width-list(2)) {@content;}
+    @media all and (min-width: nth($ctn-responsive-min-width-list, 2)) and (max-width: nth($ctn-responsive-max-width-list, 2)) {@content;}
   }
   @if $media-query == "desktop" {
-    @media all and (min-width: $ctn-min-width-list(3)) {@content;}
+    @media all and (min-width: nth($ctn-responsive-min-width-list, 3)) {@content;}
   }
 }
 

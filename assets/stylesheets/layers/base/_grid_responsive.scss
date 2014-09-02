@@ -12,7 +12,7 @@
   @include class(grid) {
     margin-bottom: -$grid-responsive-col-indent;
     margin-left: -$grid-responsive-col-gutter;
-    @include class-direct-child (grid_i) {
+    @include class-direct-child(grid_i) {
       margin-bottom: $grid-responsive-col-indent;
       margin-left: $grid-responsive-col-gutter;
     }
@@ -21,7 +21,7 @@
   @include class(grid__collapse) {
     margin-bottom: 0;
     margin-left: 0;
-    @include class-direct-child (grid_i) {
+    @include class-direct-child(grid_i) {
       margin-bottom: 0;
       margin-left: 0;
     }

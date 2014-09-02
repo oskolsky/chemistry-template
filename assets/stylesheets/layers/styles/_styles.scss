@@ -80,11 +80,11 @@ body {
     family: $base-font-family;
   }
   @if $grid == "fixed" {min-width: $ctn-fixed-width + $ctn-padding * 2;}
-  @if $grid == "fluid" {min-width: $ctn-min-width-list(3) + $ctn-padding * 2;}
+  @if $grid == "fluid" {min-width: $ctn-fluid-min-width + $ctn-padding * 2;}
   @if $grid == "responsive" {
-    @include mq(phone)   {min-width: $ctn-min-width-list(1);}
-    @include mq(tablet)  {min-width: $ctn-min-width-list(2);}
-    @include mq(desktop) {min-width: $ctn-min-width-list(3);}
+    @include mq(phone)   {min-width: $ctn-responsive-min-width-list(1);}
+    @include mq(tablet)  {min-width: $ctn-responsive-min-width-list(2);}
+    @include mq(desktop) {min-width: $ctn-responsive-min-width-list(3);}
   }
 }
 

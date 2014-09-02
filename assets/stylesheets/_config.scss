@@ -53,10 +53,16 @@ $ctn-padding: 20px; // .. px
 $ctn-fixed-width: ($grid-fixed-col-width + $grid-fixed-col-gutter) * $grid-fixed-col-qty - $grid-fixed-col-gutter;
 
 //
-// .. Fluid, responsive
+// .. Fluid
 //
-$ctn-min-width-list: (320px, 640px, 940px);   
-$ctn-max-width-list: (639px, 939px, 1180px);
+$ctn-fluid-min-width: 940px;
+$ctn-fluid-max-width: 1180px;
+
+//
+// .. Responsive
+//
+$ctn-responsive-min-width-list: (320px, 640px, 940px);   
+$ctn-responsive-max-width-list: (639px, 939px, 1180px);
 
 
 

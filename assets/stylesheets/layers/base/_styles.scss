@@ -84,21 +84,21 @@ th, td {@include prefixes(box-sizing, border-box);}
   padding-left:  $ctn-padding;
   @if $grid == "fixed" {width: #{$ctn-fixed-width};}
   @if $grid == "fluid" {
-    min-width: $ctn-min-width-list(3);
-    max-width: $ctn-max-width-list(3);
+    min-width: $ctn-fluid-min-width;
+    max-width: $ctn-fluid-max-width;
   }
   @if $grid == "responsive" {
     @include mq(phone) {
-      min-width: $ctn-min-width-list(1);
-      max-width: $ctn-max-width-list(1);
+      min-width: nth($ctn-responsive-min-width-list, 1);
+      max-width: nth($ctn-responsive-max-width-list, 1);
     }
     @include mq(tablet) {
-      min-width: $ctn-min-width-list(2);
-      max-width: $ctn-max-width-list(2);
+      min-width: nth($ctn-responsive-min-width-list, 2);
+      max-width: nth($ctn-responsive-max-width-list, 2);
     }
     @include mq(desktop) {
-      min-width: $ctn-min-width-list(3);
-      max-width: $ctn-max-width-list(3);
+      min-width: nth($ctn-responsive-min-width-list, 3);
+      max-width: nth($ctn-responsive-max-width-list, 3);
     }
     @include prefixes(box-sizing, border-box);
   }
