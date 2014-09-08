@@ -5,22 +5,8 @@
 //****************************************************************************************************
 var
   gulp = require('gulp'),
-  ignore = require('gulp-ignore'),
-  clean = require('gulp-clean'),
-  haml = require('gulp-ruby-haml'),
-  htmlreplace = require('gulp-html-replace'),
-  sass = require('gulp-ruby-sass'),
-  autoprefixer = require('gulp-autoprefixer'),
-  csscomb = require('gulp-csscomb'),
-  cssmin = require('gulp-cssmin'),
-  jshint = require('gulp-jshint'),
-  concat = require('gulp-concat'),
-  uglify = require('gulp-uglify'),
-  imagemin = require('gulp-imagemin'),
-  connect = require('gulp-connect'),
-  watch = require('gulp-watch');
-
-var path = require('./path.json');
+  plugin = require('gulp-load-plugins')(),
+  path = require('./path.json');
 
 
 
@@ -34,60 +20,60 @@ var path = require('./path.json');
 //
 gulp.task('clean', function() {
   return gulp.src(path.build, {read: false})
-    .pipe(clean());
+    .pipe(plugin.clean());
 });
 
 //
 // .. Layouts
 //
-gulp.task('layouts:development/staging', function() {
+gulp.task('layouts:dv/st', function() {
   return gulp.src([path.layouts.all, path.layouts.views.nope])
-    .pipe(haml({doubleQuote: true}))
+    .pipe(plugin.rubyHaml({doubleQuote: true}))
     .pipe(gulp.dest(path.build));
 });
 
-gulp.task('layouts:production', ['layouts:development/staging'], function() {
+gulp.task('layouts:pr', ['layouts:dv/st'], function() {
   return gulp.src(path.layouts.build.all)
-    .pipe(htmlreplace({javascripts: {src: path.javascripts.app, tpl: '<script src=\'%s\'></script>'}}))
+    .pipe(plugin.htmlReplace({javascripts: {src: path.javascripts.app, tpl: '<script src=\'%s\'></script>'}}))
     .pipe(gulp.dest(path.build));
 });
 
 //
 // .. Stylesheets
 //
-gulp.task('stylesheets:development', function() {
+gulp.task('stylesheets:dv', function() {
   return gulp.src(path.stylesheets.app)
-    .pipe(sass({noCache: true}))
+    .pipe(plugin.rubySass({noCache: true}))
     .pipe(gulp.dest(path.stylesheets.dest));
 });
 
-gulp.task('stylesheets:staging', ['stylesheets:development'], function() {
+gulp.task('stylesheets:st', ['stylesheets:dv'], function() {
   return gulp.src(path.stylesheets.build.app)
-    .pipe(autoprefixer('last 2 versions', 'ie 9'))
-    .pipe(csscomb('zen'))
+    .pipe(plugin.autoprefixer('last 2 versions', 'ie 9'))
+    .pipe(plugin.csscomb('zen'))
     .pipe(gulp.dest(path.stylesheets.dest));
 });
 
-gulp.task('stylesheets:production', ['stylesheets:staging'], function() {
+gulp.task('stylesheets:pr', ['stylesheets:st'], function() {
   return gulp.src(path.stylesheets.build.app)
-    .pipe(cssmin())
+    .pipe(plugin.cssmin())
     .pipe(gulp.dest(path.stylesheets.dest));
 });
 
 //
 // .. Javascripts
 //
-gulp.task('javascripts:staging', function() {
+gulp.task('javascripts:st', function() {
   return gulp.src([path.javascripts.all, path.javascripts.vendor.nope])
-    .pipe(jshint())
-    .pipe(jshint.reporter());
+    .pipe(plugin.jshint())
+    .pipe(plugin.jshint.reporter());
 });
 
-gulp.task('javascripts:production', ['javascripts:staging'], function() {
+gulp.task('javascripts:pr', ['javascripts:st'], function() {
   return gulp.src(path.javascripts.list)
-    .pipe(concat('application.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(path.javascripts.dest))
+    .pipe(plugin.concat('application.js'))
+    .pipe(plugin.uglify())
+    .pipe(gulp.dest(path.javascripts.dest));
 });
 
 //
@@ -95,7 +81,7 @@ gulp.task('javascripts:production', ['javascripts:staging'], function() {
 //
 gulp.task('images', function() {
   gulp.src(path.images.all)
-    .pipe(imagemin())
+    .pipe(plugin.imagemin())
     .pipe(gulp.dest(path.images.dest));
 });
 
@@ -131,7 +117,7 @@ gulp.task('copy:files', function() {
 // .. Connect
 //
 gulp.task('connect', function() {
-  connect.server({
+  plugin.connect.server({
     root: [path.build],
     port: 1111
   });
@@ -142,11 +128,11 @@ gulp.task('connect', function() {
 //
 gulp.task('watch', function() {
   gulp.src([path.layouts.all, path.layouts.views.nope], {read: false})
-    .pipe(watch())
-    .pipe(haml({doubleQuote: true}))
+    .pipe(plugin.watch())
+    .pipe(plugin.rubyHaml({doubleQuote: true}))
     .pipe(gulp.dest(path.build));
-  gulp.watch(path.layouts.views.yep, ['layouts:development/staging']);
-  gulp.watch(path.stylesheets.all, ['stylesheets:development']);
+  gulp.watch(path.layouts.views.yep, ['layouts:dv/st']);
+  gulp.watch(path.stylesheets.all, ['stylesheets:dv']);
   gulp.watch(path.stylesheets.vendor.all, ['copy:stylesheets:vendor']);
   gulp.watch(path.javascripts.all, ['copy:javascripts']);
   gulp.watch(path.images.all, ['copy:images']);
@@ -167,8 +153,8 @@ gulp.task('default', ['connect', 'watch']);
 //
 gulp.task('dv', ['clean'], function() {
   gulp.start(
-    'layouts:development/staging',
-    'stylesheets:development',
+    'layouts:dv/st',
+    'stylesheets:dv',
     'copy:stylesheets:vendor',
     'copy:javascripts',
     'copy:images',
@@ -182,9 +168,9 @@ gulp.task('dv', ['clean'], function() {
 //
 gulp.task('st', ['clean'], function() {
   gulp.start(
-    'layouts:development/staging',
-    'stylesheets:staging',
-    'javascripts:staging',
+    'layouts:dv/st',
+    'stylesheets:st',
+    'javascripts:st',
     'images',
     'copy:stylesheets:vendor',
     'copy:javascripts',
@@ -198,9 +184,9 @@ gulp.task('st', ['clean'], function() {
 //
 gulp.task('pr', ['clean'], function() {
   gulp.start(
-    'layouts:production',
-    'stylesheets:production',
-    'javascripts:production',
+    'layouts:pr',
+    'stylesheets:pr',
+    'javascripts:pr',
     'images',
     'copy:fonts',
     'copy:files'
