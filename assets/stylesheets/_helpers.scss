@@ -10,15 +10,6 @@
   }
 }
 
-// .. Used in development. In staging/production compiled CSS passed through autoprefixer (https://github.com/ai/autoprefixer)
-@mixin prefixes($property, $value) {
-  -webkit-#{$property}: $value;
-     -moz-#{$property}: $value;
-      -ms-#{$property}: $value;
-       -o-#{$property}: $value;
-          #{$property}: $value;
-}
-
 @mixin class($classname) {
   %#{$classname},
   .#{$classname} {@content;}
@@ -38,6 +29,15 @@
     background: -webkit-linear-gradient(top, $start 0%, $end 100%);
     background:         linear-gradient(to bottom, $start 0%, $end 100%);
   }
+}
+
+// .. Used in development. In staging/production compiled CSS passed through autoprefixer (https://github.com/ai/autoprefixer)
+@mixin prefixes($property, $value) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
 }
 
 @function image-url($path) {
