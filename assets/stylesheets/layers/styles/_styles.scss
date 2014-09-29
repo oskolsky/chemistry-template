@@ -9,8 +9,8 @@
   @include class(alpha) {
     font: {
       family: $h-font-family;
-      weight: nth($h1-font-weight-list, $list);
       size: nth($h1-font-size-list, $list); 
+      weight: nth($h1-font-weight-list, $list);
     }
     line-height: nth($h1-line-height-list, $list);
   }

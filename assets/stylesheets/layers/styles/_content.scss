@@ -160,7 +160,7 @@
   // .. Figure
   //
   figure {
-    img {margin-bottom: 0 !important;}
+    > img {margin-bottom: 0 !important;}
     > figcaption {
       color: #999;
       font-style: italic;
