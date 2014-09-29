@@ -20,6 +20,7 @@ textarea {resize: none;}
 .form_el {
   position: relative;
   display: inline-block;
+  vertical-align: top;
   @include prefixes(box-sizing, border-box);
 }
 
