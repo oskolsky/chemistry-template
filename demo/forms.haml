@@ -17,90 +17,171 @@
                 %h1 Forms
 
               %form.form.js-form{action: "#"}
+                
+                //
+                // .. Buttons
+                //
                 %fieldset.mb-6
                   %legend.form_legend.mb-3 Buttons
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;button type="button"/&gt;, auto width:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="button"&gt;, auto width:
                     .form_el.js-form_el.form_btn
                       %p.form_el_inner.form_btn_inner Button
                       %button.form_el_tag.form_btn_tag{type: "button"}
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;button type="button"/&gt;, 1/3 width, disabled:
-                    .form_el.js-form_el.form_btn.grid_i.grid_i__grid-4
-                      %p.form_el_inner.form_btn_inner Button
-                      %button.form_el_tag.form_btn_tag{type: "button", disabled: "disabled"}
-                  
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;button type="reset"/&gt;, 2/3 width, invalid:
-                    .form_el.js-form_el.form_btn.grid_i.grid_i__grid-8
-                      %p.form_el_inner.form_btn_inner Reset
-                      %button.form_el_tag.form_btn_tag{type: "reset", data: {valid: "false"}}
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="button"&gt;,
+                      %span.visible-desktop 1/4
+                      %span.visible-tablet 1/2
+                      %span.visible-phone 1/1
+                      width, disabled:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_btn
+                          %p.form_el_inner.form_btn_inner Button
+                          %button.form_el_tag.form_btn_tag{type: "button", disabled: "disabled"}
                   
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;button type="submit"/&gt;, full width, valid:
-                    .form_el.js-form_el.form_el__block.form_btn
-                      %p.form_el_inner.form_btn_inner Submit
-                      %button.form_el_tag.form_btn_tag{type: "submit", data: {valid: "true"}}
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;button type="button"&gt;,
+                      %span.visible-desktop 1/2
+                      %span.visible-tablet 3/4
+                      %span.visible-phone 1/1
+                      width, invalid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_btn
+                          %p.form_el_inner.form_btn_inner Button
+                          %button.form_el_tag.form_btn_tag{type: "button", data: {valid: "false"}}
+                  
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;button type="submit"&gt;,
+                      %span.visible-desktop 3/4
+                      %span.visible-tablet 1/1
+                      %span.visible-phone 1/1
+                      width, valid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_btn
+                          %p.form_el_inner.form_btn_inner Submit
+                          %button.form_el_tag.form_btn_tag{type: "Submit", data: {valid: "true"}}
 
+                  %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;button type="reset"&gt;, full width:
+                  .form_el.js-form_el.form_el__block.form_btn
+                    %p.form_el_inner.form_btn_inner Reset
+                    %button.form_el_tag.form_btn_tag{type: "Reset"}
 
-
+                //
+                // .. Inputs
+                //
                 %fieldset.mb-6
                   %legend.form_legend.mb-3 Inputs
 
+                  // .. Button, submit, reset
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="button"&gt;, auto width:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="button"&gt;, auto width:
                     .form_el.js-form_el.form_btn
                       %p.form_el_inner.form_btn_inner Button
                       %input.form_el_tag.form_btn_tag{type: "button"}
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="button"&gt;, 1/4 width, disabled:
-                    .form_el.js-form_el.form_btn.grid_i.grid_i__grid-3
-                      %p.form_el_inner.form_btn_inner Button
-                      %input.form_el_tag.form_btn_tag{type: "button", disabled: "disabled"}
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="button"&gt;,
+                      %span.visible-desktop 1/4
+                      %span.visible-tablet 1/2
+                      %span.visible-phone 1/1
+                      width, disabled:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_btn
+                          %p.form_el_inner.form_btn_inner Button
+                          %input.form_el_tag.form_btn_tag{type: "button", disabled: "disabled"}
                   
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="button"&gt;, 1/2 width, invalid:
-                    .form_el.js-form_el.form_btn.grid_i.grid_i__grid-6
-                      %p.form_el_inner.form_btn_inner Button
-                      %input.form_el_tag.form_btn_tag{type: "button", data: {valid: "false"}}
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="button"&gt;,
+                      %span.visible-desktop 1/2
+                      %span.visible-tablet 3/4
+                      %span.visible-phone 1/1
+                      width, invalid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_btn
+                          %p.form_el_inner.form_btn_inner Button
+                          %input.form_el_tag.form_btn_tag{type: "button", data: {valid: "false"}}
                   
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="submit"&gt;, 3/4 width, valid:
-                    .form_el.js-form_el.form_btn.grid_i.grid_i__grid-9
-                      %p.form_el_inner.form_btn_inner Submit
-                      %input.form_el_tag.form_btn_tag{type: "Submit", data: {valid: "true"}}
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="submit"&gt;,
+                      %span.visible-desktop 3/4
+                      %span.visible-tablet 1/1
+                      %span.visible-phone 1/1
+                      width, valid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_btn
+                          %p.form_el_inner.form_btn_inner Submit
+                          %input.form_el_tag.form_btn_tag{type: "Submit", data: {valid: "true"}}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="reset"&gt;, full width:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="reset"&gt;, full width:
                     .form_el.js-form_el.form_el__block.form_btn
                       %p.form_el_inner.form_btn_inner Reset
                       %input.form_el_tag.form_btn_tag{type: "Reset"}
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="text"&gt;, 1/4 width:
-                    .form_el.js-form_el.form_el__block.form_tx.grid_i__grid-3
+                  // .. Text, password, email, tel
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="text"&gt;, auto width:
+                    .form_el.js-form_el.form_tx
                       %input.form_el_tag.form_tx_tag{type: "text", placeholder: "Text"}
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="password"&gt;, 1/2 width, disabled:
-                    .form_el.js-form_el.form_el__block.form_tx.grid_i__grid-6
-                      %input.form_el_tag.form_tx_tag{type: "password", placeholder: "Password", value: "password", disabled: "disabled"}
-
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="email"&gt;, 3/4 width, invalid:
-                    .form_el.js-form_el.form_el__block.form_tx.grid_i__grid-9
-                      %input.form_el_tag.form_tx_tag{type: "email", placeholder: "Email", value: "email", data: {valid: "false"}}
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="text"&gt;,
+                      %span.visible-desktop 1/4
+                      %span.visible-tablet 1/2
+                      %span.visible-phone 1/1
+                      width:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_el__block.form_tx
+                          %input.form_el_tag.form_tx_tag{type: "text", placeholder: "Text"}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="tel"&gt;, full width, valid:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="password"&gt;,
+                      %span.visible-desktop 1/2
+                      %span.visible-tablet 3/4
+                      %span.visible-phone 1/1
+                      width, disabled:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_el__block.form_tx
+                          %input.form_el_tag.form_tx_tag{type: "password", placeholder: "Password", value: "password", disabled: "disabled"}
+
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="email"&gt;,
+                      %span.visible-desktop 3/4
+                      %span.visible-tablet 1/1
+                      %span.visible-phone 1/1
+                      width, invalid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_el__block.form_tx
+                          %input.form_el_tag.form_tx_tag{type: "email", placeholder: "Email", value: "email", data: {valid: "false"}}
+
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="tel"&gt;, full width, valid:
                     .form_el.js-form_el.form_el__block.form_tx
                       %input.form_el_tag.form_tx_tag{type: "tel", placeholder: "Tel", value: "1234567890", data: {valid: "true"}}
                   
+                  // .. Checkbox
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="checkbox"&gt;:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="checkbox"&gt;:
                     .form_el.js-form_el.form_checkbox
                       %input.form_el_tag.form_checkbox_tag{type: "checkbox", checked: "checked"}
                     .form_el.js-form_el.form_checkbox
@@ -111,14 +192,15 @@
                       %input.form_el_tag.form_checkbox_tag{type: "checkbox", data: {valid: "true"}}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="checkbox"&gt; inside &lt;label&gt;:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="checkbox"&gt; inside &lt;label&gt;:
                     %label.form_el.form_label.form_label__el
                       .form_el.js-form_el.form_checkbox
                         %input.form_el_tag.form_checkbox_tag{type: "checkbox"}
                       %p.form_label_inner Checkbox
 
+                  // .. Radio
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="radio"&gt;:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="radio"&gt;:
                     .form_el.js-form_el.form_radio
                       %input.form_el_tag.form_radio_tag{type: "radio", name: "radio", checked: "checked"}
                     .form_el.js-form_el.form_radio
@@ -129,51 +211,71 @@
                       %input.form_el_tag.form_radio_tag{type: "radio", name: "radio", data: {valid: "true"}}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="radio"&gt; inside &lt;label&gt;:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="radio"&gt; inside &lt;label&gt;:
                     %label.form_el.form_label.form_label__el
                       .form_el.js-form_el.form_radio
                         %input.form_el_tag.form_radio_tag{type: "radio"}
                       %p.form_label_inner Radio
 
+                  // .. File
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, auto width:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, auto width:
                     .form_el.js-form_el.form_file{data: {placeholder: "Выберите файл..."}}
                       %p.form_el_inner.js-form_el_inner.form_file_inner
                       %input.form_el_tag.form_file_tag{type: "file"}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, 1/4 width, disabled:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="file"&gt;,
+                      %span.visible-desktop 1/4
+                      %span.visible-tablet 1/2
+                      %span.visible-phone 1/1
+                      width, disabled:
                     .grid.grid__collapse
-                      .form_el.js-form_el.form_file.grid_i__grid-3{data: {placeholder: "Выберите файл..."}}
-                        %p.form_el_inner.js-form_el_inner.form_file_inner
-                        %input.form_el_tag.form_file_tag{type: "file", disabled: "disabled"}
+                      .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_file{data: {placeholder: "Выберите файл..."}}
+                          %p.form_el_inner.js-form_el_inner.form_file_inner
+                          %input.form_el_tag.form_file_tag{type: "file", disabled: "disabled"}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, 1/2 width, invalid:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="file"&gt;,
+                      %span.visible-desktop 1/2
+                      %span.visible-tablet 3/4
+                      %span.visible-phone 1/1
+                      width, invalid:
                     .grid.grid__collapse
-                      .form_el.js-form_el.form_file.grid_i__grid-6{data: {placeholder: "Выберите файл..."}}
-                        %p.form_el_inner.js-form_el_inner.form_file_inner
-                        %input.form_el_tag.form_file_tag{type: "file", data: {valid: "false"}}
+                      .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_file{data: {placeholder: "Выберите файл..."}}
+                          %p.form_el_inner.js-form_el_inner.form_file_inner
+                          %input.form_el_tag.form_file_tag{type: "file", data: {valid: "false"}}
 
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, 2/3 width, valid:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;input type="file"&gt;,
+                      %span.visible-desktop 3/4
+                      %span.visible-tablet 1/1
+                      %span.visible-phone 1/1
+                      width, valid:
                     .grid.grid__collapse
-                      .form_el.js-form_el.form_file.grid_i__grid-9{data: {placeholder: "Выберите файл..."}}
-                        %p.form_el_inner.js-form_el_inner.form_file_inner
-                        %input.form_el_tag.form_file_tag{type: "file", data: {valid: "true"}}
+                      .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_file{data: {placeholder: "Выберите файл..."}}
+                          %p.form_el_inner.js-form_el_inner.form_file_inner
+                          %input.form_el_tag.form_file_tag{type: "file", data: {valid: "true"}}
 
-                  %p.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, full width:
+                  %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="file"&gt;, full width:
                   .form_el.js-form_el.form_el__block.form_file{data: {placeholder: "Выберите файл..."}}
                     %p.form_el_inner.js-form_el_inner.form_file_inner
                     %input.form_el_tag.form_file_tag{type: "file"}
 
-
-
+                //
+                // .. Selects
+                //
                 %fieldset.mb-6
                   %legend.form_legend.mb-3 Selects
                   
                   .mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;select/&gt;, auto width:
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;select/&gt;, auto width:
                     .form_el.js-form_el.form_select
                       %p.form_el_inner.js-form_el_inner.form_select_inner
                       %select.form_el_tag.form_select_tag
@@ -181,34 +283,55 @@
                         %option 1
                         %option 2
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;select/&gt;, 1/3 width, disabled:
-                    .form_el.js-form_el.form_select.grid_i__grid-4
-                      %p.form_el_inner.js-form_el_inner.form_select_inner
-                      %select.form_el_tag.form_select_tag{disabled: "disabled"}
-                        %option{selected: "selected"} Select
-                        %option 1
-                        %option 2
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;select/&gt;,
+                      %span.visible-desktop 1/4
+                      %span.visible-tablet 1/2
+                      %span.visible-phone 1/1
+                      width, disabled:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_select
+                          %p.form_el_inner.js-form_el_inner.form_select_inner
+                          %select.form_el_tag.form_select_tag{disabled: "disabled"}
+                            %option{selected: "selected"} Select
+                            %option 1
+                            %option 2
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;select/&gt;, 1/2 width, invalid:
-                    .form_el.js-form_el.form_select.grid_i__grid-6
-                      %p.form_el_inner.js-form_el_inner.form_select_inner
-                      %select.form_el_tag.form_select_tag{data: {valid: "false"}}
-                        %option{selected: "selected"} Select
-                        %option 1
-                        %option 2
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;select/&gt;,
+                      %span.visible-desktop 1/2
+                      %span.visible-tablet 3/4
+                      %span.visible-phone 1/1
+                      width, invalid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_select
+                          %p.form_el_inner.js-form_el_inner.form_select_inner
+                          %select.form_el_tag.form_select_tag{data: {valid: "false"}}
+                            %option{selected: "selected"} Select
+                            %option 1
+                            %option 2
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;select/&gt;, 3/4 width, valid:
-                    .form_el.js-form_el.form_select.grid_i__grid-9
-                      %p.form_el_inner.js-form_el_inner.form_select_inner
-                      %select.form_el_tag.form_select_tag{data: {valid: "true"}}
-                        %option{selected: "selected"} Select
-                        %option 1
-                        %option 2
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;select/&gt;, 
+                      %span.visible-desktop 3/4
+                      %span.visible-tablet 1/1
+                      %span.visible-phone 1/1
+                      width, valid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_select
+                          %p.form_el_inner.js-form_el_inner.form_select_inner
+                          %select.form_el_tag.form_select_tag{data: {valid: "true"}}
+                            %option{selected: "selected"} Select
+                            %option 1
+                            %option 2
 
-                  %p.mb-1.tx-muted.tx-s &lt;select/&gt;, full width:
+                  %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;select/&gt;, full width:
                   .form_el.js-form_el.form_el__block.form_select
                     %p.form_el_inner.js-form_el_inner.form_select_inner
                     %select.form_el_tag.form_select_tag
@@ -216,28 +339,55 @@
                       %option 1
                       %option 2
 
-
-
+                //
+                // .. Textareas
+                //
                 %fieldset
                   %legend.form_legend.mb-3 Textareas
                   
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;textarea/&gt;, 1/4 width:
-                    .form_el.js-form_el.form_textarea.grid_i__grid-3
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;textarea/&gt;, auto width:
+                    .form_el.js-form_el.form_textarea
                       %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea"}
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;textarea/&gt;, 1/2 width, disabled:
-                    .form_el.js-form_el.form_textarea.grid_i__grid-6
-                      %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea", disabled: "disabled"} Textarea
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;textarea/&gt;,
+                      %span.visible-desktop 1/4
+                      %span.visible-tablet 1/2
+                      %span.visible-phone 1/1
+                      width:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_textarea
+                          %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea"}
 
-                  .grid.grid__collapse.mb-3
-                    %p.mb-1.tx-muted.tx-s &lt;textarea/&gt;, 3/4 width, invalid:
-                    .form_el.js-form_el.form_textarea.grid_i__grid-9
-                      %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea", data: {valid: "false"}} Textarea
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;textarea/&gt;,
+                      %span.visible-desktop 1/2
+                      %span.visible-tablet 3/4
+                      %span.visible-phone 1/1
+                      width, disabled:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_textarea
+                          %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea", disabled: "disabled"} Textarea
 
-                  %p.mb-1.tx-muted.tx-s &lt;textarea/&gt;, full width, valid:
+                  .mb-3
+                    %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
+                      &lt;textarea/&gt;,
+                      %span.visible-desktop 3/4
+                      %span.visible-tablet 1/1
+                      %span.visible-phone 1/1
+                      width, invalid:
+                    .grid.grid__collapse
+                      .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
+                        .form_el.js-form_el.form_textarea
+                          %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea", data: {valid: "false"}} Textarea
+
+                  %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;textarea/&gt;, full width, valid:
                   .form_el.js-form_el.form_el__block.form_textarea
                     %textarea.form_el_tag.form_textarea_tag{placeholder: "Textarea", data: {valid: "true"}} Textarea
-              
+
     = Haml::Engine.new(File.read("views/layouts/_footer.haml")).render

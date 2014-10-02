@@ -73,7 +73,7 @@ html {
 }
 
 body {
-  background: $base-bg;
+  background-color: $base-bg;
   color: $base-color;
   font: {
     weight: $base-font-weight;
@@ -147,6 +147,14 @@ h6 {@extend %zeta;}
 //
 //****************************************************************************************************
 //
+// .. Background
+//
+.bg-major {background-color: $major-color;}
+.bg-minor {background-color: $minor-color;}
+.bg-voice {background-color: $voice-color;}
+.bg-muted {background-color: $muted-color;}
+
+//
 // .. Currency
 //
 .format-money {white-space: nowrap;}
@@ -175,10 +183,6 @@ h6 {@extend %zeta;}
 @include class(tx-s) {
   font-size: $tx-s-font-size;
   line-height: $tx-s-line-height;
-}
-@include class(tx-m) {
-  font-size: $tx-m-font-size;
-  line-height: $tx-m-line-height;
 }
 @include class(tx-l) {
   font-size: $tx-l-font-size;
@@ -220,4 +224,4 @@ h6 {@extend %zeta;}
 // .. SILENT
 //
 //****************************************************************************************************
-%focus-style {box-shadow: 0 0 .1rem .1rem rgba(41,128,185,.66);}
+%focus-style {box-shadow: 0 0 .1rem .1rem rgba(41,128,185,.66) !important;}

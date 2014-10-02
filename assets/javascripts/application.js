@@ -65,10 +65,10 @@ function formatMoney() {
       c.format = '%v';
     } else if ($(this).hasClass('format-money__usd')) {
       c.symbol = '$';
-      c.format = '%s%v';
+      c.format = '%s %v';
     } else if ($(this).hasClass('format-money__eur')) {
       c.symbol = '€';
-      c.format = '%s%v';
+      c.format = '%s %v';
     }
 
     var

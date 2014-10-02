@@ -12,7 +12,7 @@
 // .. GRID
 //
 //****************************************************************************************************
-$grid: fixed; // .. fixed / fluid / responsive
+$grid: responsive; // .. fixed / fluid / responsive
 $grid-width-transition: false; // .. true / false
 
 //
@@ -129,7 +129,7 @@ $focus-style: true; // .. true / false
 //
 // .. Links
 //
-$link-color: #2980b9;
+$link-color: #36c;
 $link-color-hover: #ccc;
 $link-color-active: darken($link-color-hover, 10%);
 $link-style: un;        // .. nn / uu / un / nu
@@ -140,7 +140,7 @@ $link-style-pseudo: uu; // .. uu / un
 //
 $content-factor: 2;
 $content-link-style: false; // .. true / false
-$content-link-color: #0000cd;
+$content-link-color: #36c;
 $content-link-color-hover: #ccc;
 $content-link-color-active: darken($content-link-color-hover, 10%);
 
@@ -156,9 +156,6 @@ $tx-xs-line-height:  160%;
 $tx-s-font-size:     90%;
 $tx-s-line-height:   160%;
 
-$tx-m-font-size:     100%;
-$tx-m-line-height:   160%;
-
 $tx-l-font-size:     110%;
 $tx-l-line-height:   160%;
 
@@ -171,4 +168,5 @@ $tx-xxl-line-height: 160%;
 //
 // .. Rub
 //
-$rub: arial; // .. all / arial / georgia / tahoma / times / verdana
+$rub: true; // .. true / false
+$rub-font: arial; // .. all / arial / georgia / tahoma / times / verdana
