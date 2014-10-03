@@ -140,8 +140,6 @@
       var
         text = this.$tag.children('option:selected').text();
 
-      console.log(text);
-
       this.$inner.text(text);
       updateValidDisabled(this.$el, this.$tag);
     };
