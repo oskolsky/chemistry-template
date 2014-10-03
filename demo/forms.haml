@@ -85,7 +85,7 @@
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="button"&gt;, auto width:
                     .form_el.js-form_el.form_btn
                       %p.form_el_inner.form_btn_inner Button
-                      %input.form_el_tag.form_btn_tag{type: "button"}
+                      %input.form_el_tag.form_btn_tag{type: "button", value: ""}
 
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
@@ -98,7 +98,7 @@
                       .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_btn
                           %p.form_el_inner.form_btn_inner Button
-                          %input.form_el_tag.form_btn_tag{type: "button", disabled: "disabled"}
+                          %input.form_el_tag.form_btn_tag{type: "button", value: "", disabled: "disabled"}
                   
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
@@ -111,7 +111,7 @@
                       .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_btn
                           %p.form_el_inner.form_btn_inner Button
-                          %input.form_el_tag.form_btn_tag{type: "button", data: {valid: "false"}}
+                          %input.form_el_tag.form_btn_tag{type: "button", value: "", data: {valid: "false"}}
                   
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
@@ -124,13 +124,13 @@
                       .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_btn
                           %p.form_el_inner.form_btn_inner Submit
-                          %input.form_el_tag.form_btn_tag{type: "Submit", data: {valid: "true"}}
+                          %input.form_el_tag.form_btn_tag{type: "Submit", value: "", data: {valid: "true"}}
 
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type="reset"&gt;, full width:
                     .form_el.js-form_el.form_el__block.form_btn
                       %p.form_el_inner.form_btn_inner Reset
-                      %input.form_el_tag.form_btn_tag{type: "Reset"}
+                      %input.form_el_tag.form_btn_tag{type: "Reset", value: ""}
 
                   // .. Text, password, email, tel
                   .mb-3
