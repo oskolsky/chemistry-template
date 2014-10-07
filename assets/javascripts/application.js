@@ -153,29 +153,6 @@ $(function() {
 
   //****************************************************************************************************
   //
-  // .. SCROLL TO
-  //
-  //****************************************************************************************************
-  $('a[data-scroll="true"]').on('click touchstart', function() {
-    var
-      anchor = $(this).attr('href'),
-      offset = $(this).data('offset') || 0,
-      speed = $(this).data('speed') || 0,
-      destination = $(anchor).offset().top - offset;
-    
-    if (speed) {
-      $('html, body').animate({scrollTop: destination}, speed);
-    } else {
-      $('html, body').animate({scrollTop: destination}, $(document).height() / 10);
-    }
-    
-    return false;
-  });
-
-
-
-  //****************************************************************************************************
-  //
   // .. ACCOUNTING
   //
   //****************************************************************************************************

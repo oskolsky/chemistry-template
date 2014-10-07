@@ -82,10 +82,34 @@ function getBrowserScrollSize() {
 
 //****************************************************************************************************
 //
+// .. SCROLL TO
+//
+//****************************************************************************************************
+$('a[data-scroll="true"]').on('click touchstart', function() {
+  var
+    anchor = $(this).attr('href'),
+    offset = $(this).data('offset') || 0,
+    speed = $(this).data('speed') || 0,
+    destination = $(anchor).offset().top - offset;
+  
+  if (speed) {
+    $('html, body').animate({scrollTop: destination}, speed);
+  } else {
+    $('html, body').animate({scrollTop: destination}, $(document).height() / 10);
+  }
+  
+  return false;
+});
+
+
+
+//****************************************************************************************************
+//
 // .. STICKY ELEMENTS
 //
 //****************************************************************************************************
 (function($) {
+  
   $.fn.stickyHeader = function() {
     if (window.matchMedia) {
       if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
@@ -141,4 +165,25 @@ function getBrowserScrollSize() {
       return this;
     }
   };
+
 })(jQuery);
+
+
+
+//****************************************************************************************************
+//
+// .. SUBSTRING TEXT
+//
+//****************************************************************************************************
+$(function() {
+  $('[data-substring]').each(function() {
+    var 
+      text = $(this).text(),
+      count = $(this).data('substring'),
+      substr = $(this).text().toString().substring(0, count);
+    
+    if (text.length > count) {
+      $(this).text(substr += '...');
+    }
+  });
+});
