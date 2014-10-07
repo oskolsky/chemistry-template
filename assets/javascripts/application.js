@@ -137,7 +137,7 @@ $(function() {
   // .. DOUBLE HOVER
   //
   //****************************************************************************************************
-  doubleHover('a.double-hover', 'hover');
+  doubleHover('.double-hover', 'hover');
 
 
 

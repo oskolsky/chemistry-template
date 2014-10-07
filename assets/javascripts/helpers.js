@@ -34,7 +34,7 @@
 // .. DOUBLE HOVER
 //
 //****************************************************************************************************
-var doubleHover = function(selector, hoverClass) {
+function doubleHover(selector, hoverClass) {
   $(document).on('mouseover mouseout', selector, function(e) {
     $(selector)
       .filter('[href="' + $(this).attr('href') + '"]')
@@ -85,9 +85,9 @@ function getBrowserScrollSize() {
 // .. SCROLL TO
 //
 //****************************************************************************************************
-$('a[data-scroll="true"]').on('click touchstart', function() {
+$(document).on('click touchstart', '[data-scroll]', function() {
   var
-    anchor = $(this).attr('href'),
+    anchor = $(this).data('scroll'),
     offset = $(this).data('offset') || 0,
     speed = $(this).data('speed') || 0,
     destination = $(anchor).offset().top - offset;
@@ -100,73 +100,6 @@ $('a[data-scroll="true"]').on('click touchstart', function() {
   
   return false;
 });
-
-
-
-//****************************************************************************************************
-//
-// .. STICKY ELEMENTS
-//
-//****************************************************************************************************
-(function($) {
-  
-  $.fn.stickyHeader = function() {
-    if (window.matchMedia) {
-      if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
-        if (this.length) {
-          var
-            $page = $('#page'),
-            $header = this,
-            headerOuterHeight = $header.outerHeight(),
-            headerPositionTop = $header.position().top,
-            headerOffsetTop = $header.data('offset-top'),
-            windowScrollTop = $(window).scrollTop();
-              
-          if ($header.length) {
-            $header.data('offset-top', $header.offset().top);
-          }
-
-          if (windowScrollTop > headerPositionTop) {
-            $page.css({'padding-top': headerOuterHeight + 'px'});
-            $header.addClass('header__sticky');
-          }
-
-          $(window).scroll(function() {
-            windowScrollTop = $(window).scrollTop();
-            headerOffsetTop = $header.data('offset-top');
-
-            if (windowScrollTop > headerOffsetTop) {
-              $page.css({'padding-top': headerOuterHeight + 'px'});
-              $header.addClass('header__sticky');
-            } else {
-              $header.removeClass('header__sticky');
-              $page.css({'padding-top': '0'});
-            }
-          });
-
-          return this;
-        }
-      }
-    }
-  };
-
-  $.fn.stickyFooter = function() {
-    if (this.length > 0) {
-      var
-        $page = $('#page'),
-        $main = $('#main'),
-        $footer = this,
-        footerHeight = $footer.outerHeight();
-     
-      $page.css({'position': 'relative', 'min-height': '100%'});
-      $main.css({'padding-bottom': footerHeight + 'px'});
-      $footer.css({'position': 'absolute', 'right': '0', 'bottom': '0', 'left': '0', 'z-index': '999'});
-     
-      return this;
-    }
-  };
-
-})(jQuery);
 
 
 
@@ -187,3 +120,73 @@ $(function() {
     }
   });
 });
+
+
+
+//****************************************************************************************************
+//
+// .. STICKY HEADER
+//
+//****************************************************************************************************
+$.fn.stickyHeader = function() {
+  if (window.matchMedia) {
+    if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
+      if (this.length) {
+        var
+          $page = $('#page'),
+          $header = this,
+          headerOuterHeight = $header.outerHeight(),
+          headerPositionTop = $header.position().top,
+          headerOffsetTop = $header.data('offset-top'),
+          windowScrollTop = $(window).scrollTop();
+            
+        if ($header.length) {
+          $header.data('offset-top', $header.offset().top);
+        }
+
+        if (windowScrollTop > headerPositionTop) {
+          $page.css({'padding-top': headerOuterHeight + 'px'});
+          $header.addClass('header__sticky');
+        }
+
+        $(window).scroll(function() {
+          windowScrollTop = $(window).scrollTop();
+          headerOffsetTop = $header.data('offset-top');
+
+          if (windowScrollTop > headerOffsetTop) {
+            $page.css({'padding-top': headerOuterHeight + 'px'});
+            $header.addClass('header__sticky');
+          } else {
+            $header.removeClass('header__sticky');
+            $page.css({'padding-top': '0'});
+          }
+        });
+
+        return this;
+      }
+    }
+  }
+};
+
+
+
+//****************************************************************************************************
+//
+// .. STICKY FOOTER
+//
+//****************************************************************************************************
+$.fn.stickyFooter = function() {
+  if (this.length > 0) {
+    var
+      $page = $('#page'),
+      $main = $('#main'),
+      $footer = this,
+      footerHeight = $footer.outerHeight();
+   
+    $page.css({'position': 'relative', 'min-height': '100%'});
+    $main.css({'padding-bottom': footerHeight + 'px'});
+    $footer.css({'position': 'absolute', 'right': '0', 'bottom': '0', 'left': '0', 'z-index': '999'});
+   
+    return this;
+  }
+};
