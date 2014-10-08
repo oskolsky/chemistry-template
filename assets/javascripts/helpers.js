@@ -40,7 +40,7 @@ function doubleHover(selector, hoverClass) {
       .filter('[href="' + $(this).attr('href') + '"]')
       .toggleClass(hoverClass, e.type == 'mouseover');
   });
-};
+}
 
 
 
