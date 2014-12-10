@@ -1,15 +1,15 @@
 !!!
-%html.no-js{lang: "ru-RU"}
+%html.no-js{lang: 'ru-RU'}
   %head
     %title Grid / Chemistry Template
-    = Haml::Engine.new(File.read("views/layouts/_head.haml")).render
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
   
   %body#page.page
-    = Haml::Engine.new(File.read("views/common/_alerts.haml")).render
-    = Haml::Engine.new(File.read("views/layouts/_header.haml")).render
+    = Haml::Engine.new(File.read('views/common/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
     
-    %main#main.main{role: "main"}
-      %section{role: "region", aria: {label: "Grid"}}
+    %main#main.main{role: 'main'}
+      %section{role: 'region', aria: {label: 'Grid'}}
         .pt-6.pb-6
           .ctn
             %article
@@ -180,4 +180,4 @@
                 
                 %p Coming soon...
 
-    = Haml::Engine.new(File.read("views/layouts/_footer.haml")).render
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

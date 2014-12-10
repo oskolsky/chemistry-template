@@ -27,7 +27,7 @@ But before than you have to:
 
   2. Run:
     ```
-    gulp development
+    gulp dv
     ```
     to pre-build your project into working_directory/build;
 

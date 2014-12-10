@@ -1,15 +1,15 @@
 !!!
-%html.no-js{lang: "ru-RU"}
+%html.no-js{lang: 'ru-RU'}
   %head
     %title Styles / Chemistry Template
-    = Haml::Engine.new(File.read("views/layouts/_head.haml")).render
+    = Haml::Engine.new(File.read('views/layouts/_head.haml')).render
   
   %body#page.page
-    = Haml::Engine.new(File.read("views/common/_alerts.haml")).render
-    = Haml::Engine.new(File.read("views/layouts/_header.haml")).render
+    = Haml::Engine.new(File.read('views/common/_alerts.haml')).render
+    = Haml::Engine.new(File.read('views/layouts/_header.haml')).render
     
-    %main#main.main{role: "main"}
-      %section{role: "region", aria: {label: "Styles"}}
+    %main#main.main{role: 'main'}
+      %section{role: 'region', aria: {label: 'Styles'}}
         .pt-6.pb-6
           .ctn
             %article
@@ -61,12 +61,5 @@
                   %p.tx-cap Capitalize
                   %p.tx-lower Lowercase
                   %p.tx-upper Uppercase
-
-                
-
-                
-
-                
-                
               
-    = Haml::Engine.new(File.read("views/layouts/_footer.haml")).render
+    = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render

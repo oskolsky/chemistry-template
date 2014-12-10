@@ -13,8 +13,8 @@
 .header {
   
 }
-@include mq(desktop) {
-  .header__sticky {
+.header__sticky {
+  .no-touch & {
     position: fixed;
     top: 0;
     right: 0;

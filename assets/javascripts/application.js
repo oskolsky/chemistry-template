@@ -76,7 +76,7 @@ function formatMoney() {
       formatMoney = accounting.formatMoney(money);
     
     if ($(this).hasClass('format-money__rub')) {
-      $(this).text(formatMoney).append('&nbsp;<span class="rub">Р</span>');
+      $(this).text(formatMoney).append('&nbsp;<span class=\'rub\'>Р</span>');
     } else {
       $(this).text(formatMoney);
     }
@@ -93,34 +93,26 @@ function formatMoney() {
 //
 // .. Open dialog
 //
-$(document).on('click touchstart', '[data-dialog="open"]', function() {
-  if (window.matchMedia) {
-    if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
-      var url = $(this).data('url');
-    
-      $.arcticmodal('close');
+$(document).on('touchend click', '[data-dialog=\'open\']', function() {
+  var url = $(this).data('url');
 
-      $.arcticmodal({
-        type: 'ajax',
-        url: url
-      });
-      
-      return false;
-    }
-  }
+  $.arcticmodal('close');
+
+  $.arcticmodal({
+    type: 'ajax',
+    url: url
+  });
+  
+  return false;
 });
 
 //
 // .. Close dialog
 //
-$(document).on('click touchstart', '[data-dialog="close"]', function() {
-  if (window.matchMedia) {
-    if (matchMedia('all and (min-width: ' + config.matchMedia.desktop.minWidth + 'px)').matches) {
-      $.arcticmodal('close');
+$(document).on('touchend click', '[data-dialog=\'close\']', function() {
+  $.arcticmodal('close');
 
-      return false;
-    }
-  }
+  return false;
 });
 
 
@@ -168,7 +160,9 @@ $(function() {
   //****************************************************************************************************
   $(window).smartresize(function() {
 
-    $('#header').stickyHeader();
+    if (!Modernizr.touch) {
+      $('#header').stickyHeader();
+    }
     $('#footer').stickyFooter();
 
   });
@@ -184,7 +178,9 @@ $(function() {
 //****************************************************************************************************
 $(window).load(function() {
 
-  $('#header').stickyHeader();
+  if (!Modernizr.touch) {
+    $('#header').stickyHeader();
+  }
   $('#footer').stickyFooter();
 
 });

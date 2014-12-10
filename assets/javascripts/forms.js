@@ -221,7 +221,7 @@
     },
     methods = {
       init: function() {
-        this.find('[type="reset"]').click(function() {
+        this.find('[type=\'reset\']').click(function() {
           if (this.form) {
             this.form.reset();
             $(this.form).customForm('reset');
@@ -236,18 +236,18 @@
           var 
             r = refreshElements.bind($(this));
 
-          r('[type="button"]', 'button');
-          r('[type="reset"]', 'button');
-          r('[type="submit"]', 'button');
+          r('[type=\'button\']', 'button');
+          r('[type=\'reset\']', 'button');
+          r('[type=\'submit\']', 'button');
           
-          r('input[type="text"]', 'text');
-          r('input[type="password"]', 'text');
-          r('input[type="email"]', 'text');
-          r('input[type="tel"]', 'text');
+          r('input[type=\'text\']', 'text');
+          r('input[type=\'password\']', 'text');
+          r('input[type=\'email\']', 'text');
+          r('input[type=\'tel\']', 'text');
           
-          r('input[type="checkbox"]', 'checkbox');
-          r('input[type="radio"]', 'radio');
-          r('input[type="file"]', 'file');
+          r('input[type=\'checkbox\']', 'checkbox');
+          r('input[type=\'radio\']', 'radio');
+          r('input[type=\'file\']', 'file');
           
           r('select', 'select');
           r('textarea', 'textarea');
