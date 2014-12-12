@@ -66,8 +66,6 @@ gulp.task('stylesheets:s', function() {
 
 
 
-
-
 gulp.task('stylesheets:p', function() {
   gulp.src(path.stylesheets.app)
     .pipe(plugin.rubySass({noCache: true}))
@@ -76,8 +74,6 @@ gulp.task('stylesheets:p', function() {
     .pipe(plugin.minifyCss({processImport: false}))
     .pipe(gulp.dest(path.stylesheets.dest));
 });
-
-
 
 
 

@@ -67,12 +67,12 @@
                       .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_btn
                           %p.form_el_inner.form_btn_inner Submit
-                          %button.form_el_tag.form_btn_tag{type: 'Submit', data: {valid: 'true'}}
+                          %button.form_el_tag.form_btn_tag{type: 'submit', data: {valid: 'true'}}
 
                   %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;button type='reset'&gt;, full width:
                   .form_el.js-form_el.form_el__block.form_btn
                     %p.form_el_inner.form_btn_inner Reset
-                    %button.form_el_tag.form_btn_tag{type: 'Reset'}
+                    %button.form_el_tag.form_btn_tag{type: 'reset'}
 
                 //
                 // .. Inputs
@@ -124,13 +124,13 @@
                       .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_btn
                           %p.form_el_inner.form_btn_inner Submit
-                          %input.form_el_tag.form_btn_tag{type: 'Submit', value: '', data: {valid: 'true'}}
+                          %input.form_el_tag.form_btn_tag{type: 'submit', value: '', data: {valid: 'true'}}
 
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;input type='reset'&gt;, full width:
                     .form_el.js-form_el.form_el__block.form_btn
                       %p.form_el_inner.form_btn_inner Reset
-                      %input.form_el_tag.form_btn_tag{type: 'Reset', value: ''}
+                      %input.form_el_tag.form_btn_tag{type: 'reset', value: ''}
 
                   // .. Text, password, email, tel
                   .mb-3
@@ -348,7 +348,7 @@
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;textarea/&gt;, auto width:
                     .form_el.js-form_el.form_textarea
-                      %textarea.form_el_tag.form_textarea_tag{placeholder: 'Textarea'}
+                      %textarea.form_el_tag.form_textarea_tag{placeholder: 'textarea'}
 
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
@@ -360,7 +360,7 @@
                     .grid.grid__collapse
                       .grid_i.grid_i__desktop-grid-1-4.grid_i__tablet-grid-1-2.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_textarea
-                          %textarea.form_el_tag.form_textarea_tag{placeholder: 'Textarea'}
+                          %textarea.form_el_tag.form_textarea_tag{placeholder: 'textarea'}
 
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
@@ -372,7 +372,7 @@
                     .grid.grid__collapse
                       .grid_i.grid_i__desktop-grid-1-2.grid_i__tablet-grid-3-4.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_textarea
-                          %textarea.form_el_tag.form_textarea_tag{placeholder: 'Textarea', disabled: 'disabled'} Textarea
+                          %textarea.form_el_tag.form_textarea_tag{placeholder: 'textarea', disabled: 'disabled'} Textarea
 
                   .mb-3
                     %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s
@@ -384,10 +384,10 @@
                     .grid.grid__collapse
                       .grid_i.grid_i__desktop-grid-3-4.grid_i__tablet-grid-1-1.grid_i__phone-grid-1-1
                         .form_el.js-form_el.form_textarea
-                          %textarea.form_el_tag.form_textarea_tag{placeholder: 'Textarea', data: {valid: 'false'}} Textarea
+                          %textarea.form_el_tag.form_textarea_tag{placeholder: 'textarea', data: {valid: 'false'}} Textarea
 
                   %label.form_el.form_el__block.form_label.mb-1.tx-muted.tx-s &lt;textarea/&gt;, full width, valid:
                   .form_el.js-form_el.form_el__block.form_textarea
-                    %textarea.form_el_tag.form_textarea_tag{placeholder: 'Textarea', data: {valid: 'true'}} Textarea
+                    %textarea.form_el_tag.form_textarea_tag{placeholder: 'textarea', data: {valid: 'true'}} Textarea
 
     = Haml::Engine.new(File.read('views/layouts/_footer.haml')).render
