@@ -12,7 +12,7 @@
     "app": "assets/stylesheets/application.scss",
     "dest": "build/assets/stylesheets",
     "vendor": {
-      "all": "assets/stylesheets/vendor/**/*",
+      "all": "assets/stylesheets/vendor/**/*.css",
       "dest": "build/assets/stylesheets/vendor"
     }
   },
