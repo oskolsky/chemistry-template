@@ -200,7 +200,7 @@ gulp.task('watch', function() {
 // .. RUN
 //
 //****************************************************************************************************
-gulp.task('default', ['clean'], function() {
+gulp.task('default', function() {
   gulp.start(
     'connect',
     'watch'
